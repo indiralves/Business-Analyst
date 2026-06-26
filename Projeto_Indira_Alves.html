@@ -2763,6 +2763,86 @@ LIMIT 10;`
     "skills": ["Confluence", "Functional documentation", "BRD", "FRD", "RACI", "Requirements", "Test cases"]
   }
 };
+const projectDetailsEn = {
+  "sql": {
+    "title": "SQL Reporting Lab",
+    "subtitle": "Relational financial analysis applied to invoices, customers and integrity checks",
+    "tags": ["SQL", "Reporting", "Data Quality", "Finance"],
+    "context": "This case study shows how SQL can answer business questions using structured financial data. The focus is not only writing queries, but explaining how the results support reporting, reconciliation and management review.",
+    "sections": [
+      {"title":"Business problem", "items":["Financial data is split across customers, invoices and accounting entries.", "Manual Excel filters make reporting slower and harder to audit.", "The team needs repeatable queries to identify revenue, pending invoices and reconciliation gaps."]},
+      {"title":"Solution", "items":["Create a small relational model with customers, invoices and journal entries.", "Write SQL queries using JOINs, GROUP BY, HAVING and reconciliation logic.", "Document each query with the business question it answers."]},
+      {"title":"Evidence", "items":["SQL file with commented queries.", "Synthetic datasets.", "Screenshots of query and result.", "README explaining context, method and insights."]},
+      {"title":"What it proves", "items":["SQL for business reporting.", "Data quality mindset.", "Financial reconciliation logic.", "Ability to explain technical work in business language."]}
+    ],
+    "skills": ["SQL", "JOINs", "Aggregations", "Reconciliation", "Reporting", "Data quality"]
+  },
+  "python": {
+    "title": "Python Data Lab",
+    "subtitle": "Mini data pipeline with pandas, data validation and exception exports",
+    "tags": ["Python", "pandas", "Data Quality", "Automation"],
+    "context": "This case study applies Python to synthetic financial datasets. The goal is to turn separate CSV files into repeatable analysis outputs: data quality checks, revenue by segment, invoice reconciliation, Budget vs Actual and exception files.",
+    "sections": [
+      {"title":"Business problem", "items":["Financial files arrive separately and need to be validated before reporting.", "Manual checks increase the risk of missing exceptions.", "The business needs a clear output showing what requires review."]},
+      {"title":"Pipeline", "items":["Read CSV files with pandas.", "Validate row counts, columns and missing values.", "Calculate revenue by customer segment.", "Reconcile invoices against journal entries.", "Calculate Budget vs Actual by cost centre.", "Export CSV outputs for review."]},
+      {"title":"Outputs", "items":["data_quality_summary.csv", "receita_por_segmento.csv", "reconciliacao_faturas_lancamentos.csv", "budget_vs_actual.csv", "excecoes_controle.csv"]},
+      {"title":"What it proves", "items":["Python for practical data analysis.", "pandas merge and groupby.", "Financial control and exception handling.", "Code, output and documentation organised for GitHub."]}
+    ],
+    "skills": ["Python", "pandas", "CSV", "merge", "groupby", "Validation", "Reconciliation"]
+  },
+  "finance": {
+    "title": "Financial Dashboard",
+    "subtitle": "Executive FP&A dashboard for Budget vs Actual, margin and variance analysis",
+    "tags": ["Power BI", "DAX", "FP&A", "KPI Design"],
+    "context": "This case study defines a Power BI dashboard that replaces manual Excel reporting with a structured executive view. The goal is to help management understand performance, identify variances and focus on the drivers that require action.",
+    "sections": [
+      {"title":"Business problem", "items":["Monthly reporting is manual and difficult to maintain.", "Management needs a clear view of Budget vs Actual and margin trends.", "Variance analysis needs to be visible by month and cost centre."]},
+      {"title":"Solution design", "items":["Star Schema with fact table and dimensions.", "DAX measures for Actual, Budget, Variance and Variance %.", "Executive page with KPIs, monthly trend and cost-centre analysis.", "Commentary section for key insights and next steps."]},
+      {"title":"Evidence", "items":["Dashboard screenshot.", "Model screenshot.", "DAX measures file.", "Short executive interpretation of the main variances."]},
+      {"title":"What it proves", "items":["Power BI modelling.", "DAX for financial KPIs.", "FP&A reasoning.", "Ability to turn data into management insight."]}
+    ],
+    "skills": ["Power BI", "DAX", "Star Schema", "Budget vs Actual", "KPI design", "FP&A"]
+  },
+  "process": {
+    "title": "Record-to-Report Process Map",
+    "subtitle": "AS-IS/TO-BE process mapping for month-end close and automation opportunities",
+    "tags": ["BPMN", "Process Improvement", "Automation", "R2R"],
+    "context": "This case study maps a Record-to-Report process, identifies bottlenecks and proposes a redesigned future state with better validation, traceability and automation.",
+    "sections": [
+      {"title":"AS-IS issues", "items":["Manual SAP extracts.", "Excel transformations with limited traceability.", "Email-based approvals.", "Late discovery of reconciliation issues.", "Manual management reporting pack."]},
+      {"title":"TO-BE proposal", "items":["Controlled data input.", "Automated transformation and validation.", "Exception-based reconciliation.", "Approval flow with timestamp and owner.", "Power BI dashboard for visibility."]},
+      {"title":"Requirements", "items":["The process should identify material differences automatically.", "The approval flow should record owner and timestamp.", "The dashboard should be refreshed after validation.", "Exceptions should be easy to review and explain."]},
+      {"title":"What it proves", "items":["BPMN thinking.", "Process analysis.", "Finance transformation mindset.", "Ability to translate process pain points into requirements."]}
+    ],
+    "skills": ["BPMN", "AS-IS/TO-BE", "R2R", "Process improvement", "Requirements"]
+  },
+  "jira": {
+    "title": "Jira Agile Backlog",
+    "subtitle": "Functional backlog for a monthly reporting automation initiative",
+    "tags": ["Jira", "Agile", "User Stories", "Acceptance Criteria"],
+    "context": "This case study shows how a business need can be converted into a structured Agile backlog with epics, user stories, tasks and acceptance criteria.",
+    "sections": [
+      {"title":"Epic", "items":["Automate monthly financial reporting to reduce manual work, improve data quality and speed up variance analysis."]},
+      {"title":"User stories", "items":["As a Controller, I want monthly data to refresh automatically so that manual checks are reduced.", "As a Manager, I want exceptions visible before close so that I can approve information with confidence.", "As a Business Analyst, I want validation rules documented so that business and technical teams are aligned."]},
+      {"title":"Acceptance criteria", "items":["Given source files are available, when refresh runs, then data is imported and validated.", "Given a difference is above tolerance, when validation finishes, then the exception is visible in the output.", "Given a rule changes, when documentation is updated, then the team can repeat the test."]},
+      {"title":"What it proves", "items":["Agile backlog structure.", "User story writing.", "Gherkin-style acceptance criteria.", "Business-to-technical translation."]}
+    ],
+    "skills": ["Jira", "Scrum", "Backlog", "User stories", "Gherkin", "Definition of Done"]
+  },
+  "confluence": {
+    "title": "Confluence Functional Documentation",
+    "subtitle": "Functional documentation page for a monthly reporting process",
+    "tags": ["Confluence", "BRD", "FRD", "Documentation", "Business Analysis"],
+    "context": "This case study demonstrates how to document a functional solution clearly for business stakeholders and technical teams.",
+    "sections": [
+      {"title":"Context and problem", "items":["Monthly reporting depends on manual extracts and Excel files.", "The process has error risk, low traceability and duplicated effort."]},
+      {"title":"Stakeholders", "items":["Controller: validates data and explains variances.", "Business Analyst: gathers requirements and documents rules.", "Manager: approves the final output.", "IT/Data: supports technical integration."]},
+      {"title":"Functional requirements", "items":["Import monthly files.", "Validate mandatory columns.", "Identify exceptions.", "Generate dashboard-ready output.", "Keep traceability of transformation steps."]},
+      {"title":"What it proves", "items":["Functional documentation.", "Requirement clarity.", "Test case thinking.", "Communication between business and IT."]}
+    ],
+    "skills": ["Confluence", "Functional documentation", "BRD", "FRD", "Requirements", "Test cases"]
+  }
+};
 const questions = [
   {
     "q": "Tell me about yourself.",
@@ -3038,6 +3118,293 @@ let currentLang = "pt";
 let currentStudyArea = "Todos";
 let toastTimer = null;
 
+const uiTranslations = {
+  "Exercícios": "Exercises",
+  "Começar exercícios": "Start exercises",
+  "Study Mode ativo · Learning Lab, XP e simulador de entrevistas visíveis": "Study Mode active · Learning Lab, XP and interview simulator visible",
+  "Recruiter Mode ativo · foco em experiência, projetos, competências e contacto": "Recruiter Mode active · focused on experience, projects, skills and contact",
+  "Evidências práticas": "Practical evidence",
+  "Estuda sem percorrer a página toda": "Study without scrolling through the whole page",
+  "Usa estes atalhos para abrir apenas o que precisas: foco diário, exercícios, entrevistas ou diário.": "Use these shortcuts to open only what you need: daily focus, exercises, interviews or journal.",
+  "Hoje": "Today",
+  "Timer, meta diária, sequência e próximo passo.": "Timer, daily goal, streak and next step.",
+  "Abre o Learning Lab só quando fores praticar.": "Open the Learning Lab only when you are ready to practise.",
+  "Entrevistas": "Interviews",
+  "Treina respostas STAR em português e inglês.": "Practise STAR answers in Portuguese and English.",
+  "Revisão": "Review",
+  "Consulta conceitos e flashcards sem ruído.": "Review concepts and flashcards without clutter.",
+  "Plano inicial da sebenta": "Original workbook plan",
+  "Fase 1 · Junho": "Phase 1 · June",
+  "Aquecimento técnico": "Technical warm-up",
+  "Bloco de arranque para ganhar ritmo sem sobrecarga. O foco é rever SQL, Power Query e lógica de reporting, com sessões curtas e consistentes.": "A starting block to build rhythm without overload. The focus is reviewing SQL, Power Query and reporting logic through short, consistent sessions.",
+  "por dia": "per day",
+  "bases": "basics",
+  "limpeza": "cleaning",
+  "Abrir plano diário": "Open daily plan",
+  "Fase 2 · Julho": "Phase 2 · July",
+  "Mês de construção técnica: exercícios SQL, transformação de dados, modelo Power BI e um dashboard financeiro que possa ser mostrado como prova prática.": "Technical build month: SQL exercises, data transformation, Power BI modelling and a financial dashboard that can be shown as practical evidence.",
+  "medidas": "measures",
+  "1 versão": "1 version",
+  "Praticar exercícios": "Practise exercises",
+  "Fase 3 · Agosto": "Phase 3 · August",
+  "Business Analysis, Jira e BPMN": "Business Analysis, Jira and BPMN",
+  "Fase funcional: aprender a documentar requisitos, escrever user stories, estruturar backlog, usar Jira/Confluence e desenhar processos AS-IS/TO-BE.": "Functional phase: learn to document requirements, write user stories, structure a backlog, use Jira/Confluence and design AS-IS/TO-BE processes.",
+  "processos": "processes",
+  "testes": "tests",
+  "Abrir BA Lab": "Open BA Lab",
+  "Fase 4 · Setembro": "Phase 4 · September",
+  "Portefólio final": "Final portfolio",
+  "Transformar o estudo em evidência pública: organizar GitHub, screenshots, documentação funcional, diagramas e case studies curtos para entrevistas.": "Turn study into public evidence: organise GitHub, screenshots, functional documentation, diagrams and short case studies for interviews.",
+  "evidências": "evidence items",
+  "publicável": "publishable",
+  "linkado": "linked",
+  "Ver evidências": "View evidence",
+  "Entregável": "Deliverable",
+  "Plano completo, não só projetos": "Complete plan, not only projects",
+  "O site funciona como sebenta interativa: módulos teóricos curtos, exercícios, verdadeiro/falso, escolhas múltiplas, entrevistas, diário de estudo e evidências finais.": "The site works as an interactive workbook: short theory modules, exercises, true/false questions, multiple choice, interviews, study journal and final evidence.",
+  "níveis": "levels",
+  "módulos": "modules",
+  "provas": "proofs",
+  "Entrar na sebenta": "Enter workbook",
+  "Nota de transparência:": "Transparency note:",
+  "no Recruiter Mode, o site não mostra percentagens de aprendizagem geradas pelo browser. As competências são apresentadas por evidência profissional e projetos, sem métricas fabricadas.": "in Recruiter Mode, the site does not show browser-generated learning percentages. Skills are presented through professional evidence and projects, without fabricated metrics.",
+  "Apoio ao reporting de negócio, KPIs, fecho mensal e análise de desvios.": "Supported business reporting, KPIs, month-end close and variance analysis.",
+  "Automatização de extrações e transformação de dados com SAP, Power Query e VBA.": "Automated extracts and data transformation with SAP, Power Query and VBA.",
+  "Classificação, validação e controlo de ficheiros financeiros.": "Classified, validated and controlled financial files.",
+  "Preparação de informação financeira para suporte à decisão.": "Prepared financial information to support decision-making.",
+  "Análise de documentação, transações e registos contabilísticos.": "Analysed documentation, transactions and accounting records.",
+  "Preparação de relatórios com conclusões, riscos e recomendações.": "Prepared reports with conclusions, risks and recommendations.",
+  "Validação de conformidade, integridade e qualidade da informação.": "Validated compliance, integrity and information quality.",
+  "Comunicação com stakeholders e desenvolvimento de visão de controlo interno.": "Communicated with stakeholders and developed an internal control perspective.",
+  "Evidências da sebenta": "Workbook evidence",
+  "1. Queries SQL no GitHub": "1. SQL queries on GitHub",
+  "Repositório com queries SQL, dataset sintético, README, screenshots e explicação das perguntas de negócio respondidas.": "Repository with SQL queries, synthetic dataset, README, screenshots and explanation of the business questions answered.",
+  "Dashboard financeiro com KPIs, Budget vs Actual, margem, evolução mensal, medidas DAX e interpretação executiva.": "Financial dashboard with KPIs, Budget vs Actual, margin, monthly trend, DAX measures and executive interpretation.",
+  "Script Python com pandas para validar datasets, calcular receita por segmento, reconciliar faturas vs lançamentos e exportar exceções.": "Python script with pandas to validate datasets, calculate revenue by segment, reconcile invoices vs journal entries and export exceptions.",
+  "6. Diagrama BPMN": "6. BPMN diagram",
+  "Mapa AS-IS/TO-BE com gargalos, handoffs, riscos, oportunidades de automação e requisitos associados.": "AS-IS/TO-BE map with bottlenecks, handoffs, risks, automation opportunities and related requirements.",
+  "4. Projeto Jira": "4. Jira project",
+  "Backlog simulado com epic, user stories, tasks, bugs, prioridades, critérios de aceitação e Definition of Done.": "Simulated backlog with epic, user stories, tasks, bugs, priorities, acceptance criteria and Definition of Done.",
+  "5. Documentação Confluence": "5. Confluence documentation",
+  "Página funcional com contexto, requisitos, regras de negócio, critérios de aceitação, RACI e plano de validação.": "Functional page with context, requirements, business rules, acceptance criteria, RACI and validation plan.",
+  "Métricas de valor em linguagem de negócio": "Value metrics in business language",
+  "Experiência em auditoria, controlo e reporting": "Experience in audit, control and reporting",
+  "Automação com SAP, Power Query e VBA": "Automation with SAP, Power Query and VBA",
+  "Capacidade de documentar requisitos e processos": "Ability to document requirements and processes",
+  "Foco em qualidade, reconciliação e tomada de decisão": "Focus on quality, reconciliation and decision-making",
+  "Automações, limpeza de dados, append/merge, transformação de ficheiros.": "Automation, data cleaning, append/merge and file transformation.",
+  "Learning Lab com JOINs, agregações, CTEs e controlos de integridade.": "Learning Lab with JOINs, aggregations, CTEs and integrity checks.",
+  "pandas, limpeza de CSV, merge, groupby, validações e exportação de exceções.": "pandas, CSV cleaning, merge, groupby, validations and exception export.",
+  "User Stories, Gherkin, stakeholder analysis e documentação funcional.": "User Stories, Gherkin, stakeholder analysis and functional documentation.",
+  "AS-IS, TO-BE, identificação de gargalos e oportunidades de automação.": "AS-IS, TO-BE, bottleneck identification and automation opportunities.",
+  "P&L, variance analysis, month-end close e Record-to-Report.": "P&L, variance analysis, month-end close and Record-to-Report.",
+  "Academia pessoal de aprendizagem": "Personal learning academy",
+  "Um painel para estudar com foco, criar rotina e transformar cada exercício em evidência profissional para portefólio e entrevistas.": "A panel to study with focus, build routine and turn each exercise into professional portfolio and interview evidence.",
+  "Estudo de hoje": "Today’s study",
+  "Começa por um bloco de foco": "Start with a focus block",
+  "Escolhe uma área, define o objetivo diário e começa por 25 minutos de prática.": "Choose an area, set the daily goal and start with 25 minutes of practice.",
+  "Área de foco": "Focus area",
+  "Todos os módulos": "All modules",
+  "Meta diária": "Daily goal",
+  "Iniciar foco": "Start focus",
+  "Repor": "Reset",
+  "Guardar sessão": "Save session",
+  "Progresso inteligente": "Smart progress",
+  "O teu progresso": "Your progress",
+  "O objetivo é manter consistência e terminar exercícios suficientes para criar provas visíveis.": "The goal is to stay consistent and complete enough exercises to create visible evidence.",
+  "conclusão geral": "overall completion",
+  "dias de sequência": "streak days",
+  "minutos registados": "logged minutes",
+  "evidências possíveis": "possible evidence items",
+  "Próximo exercício recomendado": "Recommended next exercise",
+  "A calcular...": "Calculating...",
+  "Abrir próximo exercício": "Open next exercise",
+  "Exportar diário": "Export journal",
+  "Cronograma da sebenta": "Workbook timeline",
+  "Ritmo sugerido": "Suggested rhythm",
+  "Usa este plano para seguir a sequência original: aquecimento, técnica, Business Analysis e portefólio final.": "Use this plan to follow the original sequence: warm-up, technical practice, Business Analysis and final portfolio.",
+  "20 a 30 de junho: aquecimento": "20 to 30 June: warm-up",
+  "2 a 3 horas por dia para rever SQL, Power Query e organização do portefólio.": "2 to 3 hours per day to review SQL, Power Query and portfolio organisation.",
+  "Julho: bloco técnico": "July: technical block",
+  "SQL intensivo, Power Query, Power BI, DAX e construção do primeiro dashboard.": "Intensive SQL, Power Query, Power BI, DAX and first dashboard build.",
+  "Agosto: Business Analysis": "August: Business Analysis",
+  "Jira, Confluence, BPMN, Agile, requisitos, user stories e documentação funcional.": "Jira, Confluence, BPMN, Agile, requirements, user stories and functional documentation.",
+  "Setembro: publicação": "September: publication",
+  "Organizar as 6 evidências finais: SQL, Python, Power BI, Jira, Confluence e BPMN.": "Organise the 6 final evidence items: SQL, Python, Power BI, Jira, Confluence and BPMN.",
+  "Diário": "Journal",
+  "Diário de aprendizagem": "Learning journal",
+  "Regista o que estudaste, o que ainda está difícil e como vais transformar isso numa prova profissional.": "Log what you studied, what is still difficult and how you will turn it into professional evidence.",
+  "Guardar entrada": "Save entry",
+  "Limpar diário": "Clear journal",
+  "Flashcards": "Flashcards",
+  "Revisão rápida": "Quick review",
+  "Clica no cartão para revelar a resposta. Usa isto antes de entrevistas ou no fim de cada sessão.": "Click the card to reveal the answer. Use this before interviews or at the end of each session.",
+  "Clica para revelar.": "Click to reveal.",
+  "Anterior": "Previous",
+  "Revelar": "Reveal",
+  "Seguinte": "Next",
+  "Portefólio": "Portfolio",
+  "Checklist para transformar estudo em evidência": "Checklist to turn study into evidence",
+  "Quando terminares um exercício importante, usa esta estrutura para criar um mini case study no teu portefólio.": "When you finish an important exercise, use this structure to create a mini case study for your portfolio.",
+  "1. Problema": "1. Problem",
+  "Que dor de negócio ou controlo financeiro o exercício resolve?": "What business or financial control pain does the exercise solve?",
+  "2. Método": "2. Method",
+  "Que ferramenta usaste: SQL, Power Query, Power BI, BPMN, requisitos?": "What tool did you use: SQL, Power Query, Power BI, BPMN, requirements?",
+  "3. Resultado": "3. Result",
+  "Como a solução melhora tempo, qualidade, rastreabilidade ou decisão?": "How does the solution improve time, quality, traceability or decision-making?",
+  "4. Prova": "4. Proof",
+  "Guarda screenshot, query, dashboard, fluxo BPMN ou README.": "Save a screenshot, query, dashboard, BPMN flow or README.",
+  "Área pessoal de treino com 80 níveis: primeiro escolhe o módulo que queres estudar, depois seleciona o exercício.": "Personal training area with 80 levels: first choose the module you want to study, then select the exercise.",
+  "80 níveis disponíveis": "80 levels available",
+  "Como usar os módulos de estudo": "How to use the study modules",
+  "O que vais praticar": "What you will practise",
+  "Como estudar": "How to study",
+  "Evidência a criar": "Evidence to create",
+  "Ligação a vagas": "Connection to roles",
+  "Quando usar": "When to use",
+  "Resultado esperado: visão geral do teu progresso e das áreas que ainda precisam de reforço.": "Expected result: an overview of your progress and the areas that still need reinforcement.",
+  "Resultado esperado: construir queries para reporting, reconciliação e análise de faturação.": "Expected result: build queries for reporting, reconciliation and invoice analysis.",
+  "Resultado esperado: criar análises de dados simples, repetíveis e explicáveis com Python.": "Expected result: create simple, repeatable and explainable data analyses with Python.",
+  "Resultado esperado: transformar ficheiros manuais em processos repetíveis e auditáveis.": "Expected result: turn manual files into repeatable and auditable processes.",
+  "Resultado esperado: criar dashboards financeiros mais claros e orientados à decisão.": "Expected result: create clearer financial dashboards focused on decision-making.",
+  "Resultado esperado: documentar requisitos de forma clara, testável e compreensível para negócio e IT.": "Expected result: document requirements in a clear, testable way that business and IT can understand.",
+  "Resultado esperado: criar mapas de processo que expliquem problemas e soluções de forma visual.": "Expected result: create process maps that explain problems and solutions visually.",
+  "Resultado esperado: falar de finanças com linguagem analítica, operacional e orientada a melhoria.": "Expected result: speak about finance with analytical, operational and improvement-oriented language.",
+  "Resultado esperado: compreender como requisitos e entregas são geridos em equipas Agile.": "Expected result: understand how requirements and deliveries are managed in Agile teams.",
+  "Resultado esperado: responder com mais confiança, estrutura e impacto.": "Expected result: answer with more confidence, structure and impact.",
+  "Resultado esperado: converter aprendizagem em portefólio profissional visível.": "Expected result: convert learning into a visible professional portfolio.",
+  "Combina exercícios técnicos e funcionais.": "Combines technical and functional exercises.",
+  "Ajuda a perceber que áreas estão mais fortes.": "Helps identify which areas are stronger.",
+  "Serve para revisão geral antes de entrevistas.": "Useful for general review before interviews.",
+  "Filtros, ordenação, agregações e HAVING.": "Filters, sorting, aggregations and HAVING.",
+  "INNER JOIN, LEFT JOIN e deteção de dados sem correspondência.": "INNER JOIN, LEFT JOIN and detection of unmatched data.",
+  "CTEs, rankings e controlos de qualidade de dados.": "CTEs, rankings and data quality checks.",
+  "Leitura de CSV com pandas e inspeção de dados.": "CSV reading with pandas and data inspection.",
+  "Limpeza, tipos de dados, valores nulos e filtros.": "Cleaning, data types, missing values and filters.",
+  "merge, groupby, reconciliações e exportação de ficheiros de exceções.": "merge, groupby, reconciliations and export of exception files.",
+  "Importação de CSV, Excel e pastas de ficheiros.": "Importing CSV, Excel and file folders.",
+  "Limpeza, renomeação, tipos de dados e tratamento de erros.": "Cleaning, renaming, data types and error handling.",
+  "Merge, Append, Unpivot e pipelines de transformação.": "Merge, Append, Unpivot and transformation pipelines.",
+  "Star Schema, relações e tabelas de dimensão/facto.": "Star Schema, relationships and dimension/fact tables.",
+  "Medidas DAX como Total, Margem %, Budget vs Actual e YoY.": "DAX measures such as Total, Margin %, Budget vs Actual and YoY.",
+  "Design de dashboards para leitura executiva.": "Dashboard design for executive reading.",
+  "Mapeamento de stakeholders e perguntas de levantamento.": "Stakeholder mapping and elicitation questions.",
+  "User Stories, Acceptance Criteria e Gherkin.": "User Stories, Acceptance Criteria and Gherkin.",
+  "BRD, FRD, Gap Analysis, RACI e documentação funcional.": "BRD, FRD, Gap Analysis, RACI and functional documentation.",
+  "Processos AS-IS e TO-BE.": "AS-IS and TO-BE processes.",
+  "Gateways, swimlanes e fluxos de aprovação.": "Gateways, swimlanes and approval flows.",
+  "Identificação de desperdícios, bottlenecks e candidatos à automação.": "Identification of waste, bottlenecks and automation candidates.",
+  "Análise de P&L, margem e variações.": "P&L, margin and variance analysis.",
+  "Budget vs Actual, forecast e controlo orçamental.": "Budget vs Actual, forecast and budget control.",
+  "Month-end close, accruals e transformação Record-to-Report.": "Month-end close, accruals and Record-to-Report transformation.",
+  "Scrum, backlog, sprint planning e refinement.": "Scrum, backlog, sprint planning and refinement.",
+  "Epics, user stories, tasks, bugs e Definition of Done.": "Epics, user stories, tasks, bugs and Definition of Done.",
+  "Documentação funcional em Confluence.": "Functional documentation in Confluence.",
+  "Pitch inicial em inglês e português.": "Initial pitch in English and Portuguese.",
+  "Método STAR para perguntas comportamentais.": "STAR method for behavioural questions.",
+  "Vocabulário técnico para SQL, Python, Power BI, BA e Finance Transformation.": "Technical vocabulary for SQL, Python, Power BI, BA and Finance Transformation.",
+  "README profissional para projetos.": "Professional README for projects.",
+  "Screenshots de SQL, Python, Power BI e BPMN.": "Screenshots of SQL, Python, Power BI and BPMN.",
+  "Case studies com problema, solução, ferramentas e resultado.": "Case studies with problem, solution, tools and result.",
+  "Competências demonstradas": "Skills demonstrated",
+  "Contexto": "Context",
+  "Estrutura do case study": "Case study structure",
+  "Queries — biblioteca de análise financeira": "Queries — financial analysis library",
+  "Estrutura do report — 4 páginas": "Report structure — 4 pages",
+  "Estado AS-IS — processo actual (6 dias úteis)": "AS-IS state — current process (6 business days)",
+  "Estado TO-BE — processo redesenhado (target: 2 dias úteis)": "TO-BE state — redesigned process (target: 2 business days)",
+  "Requisitos funcionais e não-funcionais": "Functional and non-functional requirements",
+  "Checklist acionável": "Actionable checklist",
+  "Aprovação": "Approval",
+  "automático": "automatic",
+  "1. Escolhe o foco do dia": "1. Choose the day’s focus",
+  "2. Resolve como se fosse trabalho real": "2. Solve it as real work",
+  "3. Guarda prova do progresso": "3. Save proof of progress",
+  "Todos": "All",
+  "queries, joins, CTEs": "queries, joins, CTEs",
+  "pandas, CSV, validação": "pandas, CSV, validation",
+  "limpeza e automação": "cleaning and automation",
+  "modelo, medidas e KPIs": "model, measures and KPIs",
+  "requisitos e user stories": "requirements and user stories",
+  "AS-IS, TO-BE, Lean": "AS-IS, TO-BE, Lean",
+  "P&L, forecast, fecho": "P&L, forecast, close",
+  "Scrum e Confluence": "Scrum and Confluence",
+  "entrevistas e inglês": "interviews and English",
+  "GitHub, case studies": "GitHub, case studies",
+  "Avaliação de nível": "Level assessment",
+  "Quiz rápido da sebenta": "Quick workbook quiz",
+  "Escolhe um módulo acima para responder a perguntas de verdadeiro/falso e escolha múltipla.": "Choose a module above to answer true/false and multiple-choice questions.",
+  "Corrigir avaliação": "Grade assessment",
+  "Seleciona um exercício": "Select an exercise",
+  "Cenário de negócio": "Business scenario",
+  "Escolhe um exercício na lista lateral.": "Choose an exercise from the side list.",
+  "Desafio prático": "Practical challenge",
+  "Aguardando seleção...": "Waiting for selection...",
+  "Consola de resolução": "Solution console",
+  "Guardar rascunho": "Save draft",
+  "Marcar como concluído": "Mark as completed",
+  "Mostrar solução": "Show solution",
+  "Limpar": "Clear",
+  "Exportar progresso": "Export progress",
+  "Coach de aprendizagem": "Learning coach",
+  "Usa este exercício para treinar raciocínio, solução e evidência profissional.": "Use this exercise to practise reasoning, solution design and professional evidence.",
+  "Antes de resolver": "Before solving",
+  "Identifica o objetivo de negócio.": "Identify the business objective.",
+  "Durante": "During",
+  "Escreve uma solução clara e verificável.": "Write a clear and verifiable solution.",
+  "Depois": "After",
+  "Transforma a resposta numa prova de portefólio.": "Turn the answer into portfolio proof.",
+  "Inserir template de reflexão": "Insert reflection template",
+  "Gerar mini case study": "Generate mini case study",
+  "Simulador de entrevistas": "Interview simulator",
+  "Avaliação simples por estrutura, impacto, vocabulário técnico e ligação à vaga.": "Simple assessment by structure, impact, technical vocabulary and fit to the role.",
+  "Avaliar resposta": "Evaluate answer",
+  "Guardar resposta": "Save answer",
+  "Biblioteca de conceitos": "Concept library",
+  "Mini glossário para rever rapidamente conceitos de dados, processos e análise financeira.": "Mini glossary to quickly review data, process and financial analysis concepts.",
+  "Auditoria financeira, validação documental, controlo de conformidade e reporting.": "Financial audit, document validation, compliance control and reporting.",
+  "Controlo financeiro, SAP, Power Query, VBA, reporting e automação.": "Financial control, SAP, Power Query, VBA, reporting and automation.",
+  "Business Analyst, Process Analyst, Reporting Analyst ou Finance Transformation Analyst.": "Business Analyst, Process Analyst, Reporting Analyst or Finance Transformation Analyst.",
+  "Contacto": "Contact",
+  "Entra em contacto": "Get in touch",
+  "Disponibilidade": "Availability",
+  "Disponível imediatamente · Lisboa": "Immediately available · Lisbon",
+  "Lisboa · Área metropolitana · Remoto": "Lisbon · Metropolitan area · Remote",
+  "Português nativo · Inglês B2/C1": "Native Portuguese · English B2/C1",
+  "Fechar": "Close",
+  "Mostrar guia dos módulos": "Show module guide",
+  "Esconder guia dos módulos": "Hide module guide",
+  "Mostrar avaliação": "Show assessment",
+  "Esconder avaliação": "Hide assessment",
+  "Os exercícios aparecem primeiro. O guia e o quiz ficam escondidos para a página não ficar tão comprida.": "Exercises appear first. The guide and quiz stay hidden so the page is not too long.",
+  "secção compactada": "compact section",
+  "Abrir": "Open"
+};
+
+const placeholderTranslations = {
+  "Pesquisar: SQL, Python, DAX, Gherkin...": "Search: SQL, Python, DAX, Gherkin...",
+  "Escreve aqui a query SQL, DAX, User Story, raciocínio ou plano de ação...": "Write the SQL query, DAX, User Story, reasoning or action plan here...",
+  "Escreve a tua resposta como se estivesses numa entrevista em inglês ou português...": "Write your answer as if you were in an interview in English or Portuguese...",
+  "Ex.: Hoje pratiquei joins em SQL. Ainda preciso rever LEFT JOIN vs INNER JOIN. Evidência a criar: screenshot da query + explicação do problema de negócio.": "Example: Today I practised SQL joins. I still need to review LEFT JOIN vs INNER JOIN. Evidence to create: query screenshot + explanation of the business problem."
+};
+
+const reverseUiTranslations = Object.fromEntries(Object.entries(uiTranslations).map(([pt, en]) => [en, pt]));
+const reversePlaceholderTranslations = Object.fromEntries(Object.entries(placeholderTranslations).map(([pt, en]) => [en, pt]));
+
+const moduleLabels = {
+  "Todos": {pt:"Todos", en:"All", ptSub:"80 níveis", enSub:"80 levels", ptOption:"Todos os módulos", enOption:"All modules"},
+  "SQL": {pt:"SQL Academy", en:"SQL Academy", ptSub:"queries, joins, CTEs", enSub:"queries, joins, CTEs", ptOption:"SQL Academy", enOption:"SQL Academy"},
+  "Python": {pt:"Python for Data", en:"Python for Data", ptSub:"pandas, CSV, validação", enSub:"pandas, CSV, validation", ptOption:"Python for Data", enOption:"Python for Data"},
+  "Power Query": {pt:"Power Query ETL", en:"Power Query ETL", ptSub:"limpeza e automação", enSub:"cleaning and automation", ptOption:"Power Query ETL", enOption:"Power Query ETL"},
+  "Power BI": {pt:"Power BI & DAX", en:"Power BI & DAX", ptSub:"modelo, medidas e KPIs", enSub:"model, measures and KPIs", ptOption:"Power BI & DAX", enOption:"Power BI & DAX"},
+  "Business Analysis": {pt:"Business Analysis", en:"Business Analysis", ptSub:"requisitos e user stories", enSub:"requirements and user stories", ptOption:"Business Analysis", enOption:"Business Analysis"},
+  "BPMN": {pt:"BPMN & Process", en:"BPMN & Process", ptSub:"AS-IS, TO-BE, Lean", enSub:"AS-IS, TO-BE, Lean", ptOption:"BPMN & Process Improvement", enOption:"BPMN & Process Improvement"},
+  "Finance Transformation": {pt:"Finance & FP&A", en:"Finance & FP&A", ptSub:"P&L, forecast, fecho", enSub:"P&L, forecast, close", ptOption:"Finance, FP&A & Transformation", enOption:"Finance, FP&A & Transformation"},
+  "Jira & Agile": {pt:"Jira & Agile", en:"Jira & Agile", ptSub:"Scrum e Confluence", enSub:"Scrum and Confluence", ptOption:"Jira, Confluence & Agile", enOption:"Jira, Confluence & Agile"},
+  "Interview Practice": {pt:"Interview Practice", en:"Interview Practice", ptSub:"entrevistas e inglês", enSub:"interviews and English", ptOption:"Interview & English Practice", enOption:"Interview & English Practice"},
+  "Portfolio": {pt:"Portfolio", en:"Portfolio", ptSub:"GitHub, case studies", enSub:"GitHub, case studies", ptOption:"Portfolio Development", enOption:"Portfolio Development"}
+};
+
 function $(id) { return document.getElementById(id); }
 function safe(fn) { try { fn(); } catch (e) { console.error(e); showToast("Ocorreu um erro no botão. Abre a consola para detalhe."); } }
 function getCompleted() { return JSON.parse(localStorage.getItem("completedExercises_v7") || "[]"); }
@@ -3051,6 +3418,99 @@ function showToast(message) {
   toast.classList.add("show");
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
+}
+
+function translateValue(value) {
+  if (!value) return value;
+  const dict = currentLang === "en" ? uiTranslations : reverseUiTranslations;
+  return dict[value] || value;
+}
+
+function translatePlaceholder(value) {
+  if (!value) return value;
+  const dict = currentLang === "en" ? placeholderTranslations : reversePlaceholderTranslations;
+  return dict[value] || value;
+}
+
+function applyStaticTranslations(root = document.body) {
+  if (!root) return;
+  const dict = currentLang === "en" ? uiTranslations : reverseUiTranslations;
+  const skipTags = new Set(["SCRIPT", "STYLE", "CODE", "PRE", "TEXTAREA", "SVG"]);
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent) return NodeFilter.FILTER_REJECT;
+      if (parent.closest("script,style,code,pre,textarea,svg")) return NodeFilter.FILTER_REJECT;
+      return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    const original = node.nodeValue;
+    const trimmed = original.trim();
+    if (dict[trimmed]) node.nodeValue = original.replace(trimmed, dict[trimmed]);
+  });
+
+  root.querySelectorAll("input[placeholder], textarea[placeholder]").forEach(el => {
+    el.placeholder = translatePlaceholder(el.placeholder);
+  });
+}
+
+function syncLanguageLabels() {
+  const en = currentLang === "en";
+  const setText = (selector, pt, english) => {
+    const el = document.querySelector(selector);
+    if (el) el.textContent = en ? english : pt;
+  };
+
+  setText('.nav-links a[href="#lab"]', "Exercícios", "Exercises");
+  setText("#menuBtn", "Menu", "Menu");
+  setText("#lab .section-head p", "Área pessoal de treino com 80 níveis: primeiro escolhe o módulo que queres estudar, depois seleciona o exercício.", "Personal training area with 80 levels: first choose the module you want to study, then select the exercise.");
+  setText("#moduleGuideToggle", document.body.classList.contains("show-module-guide") ? "Esconder guia dos módulos" : "Mostrar guia dos módulos", document.body.classList.contains("show-module-guide") ? "Hide module guide" : "Show module guide");
+  setText("#quizPanelToggle", document.body.classList.contains("show-quiz-panel") ? "Esconder avaliação" : "Mostrar avaliação", document.body.classList.contains("show-quiz-panel") ? "Hide assessment" : "Show assessment");
+  setText(".fast-note", "Os exercícios aparecem primeiro. O guia e o quiz ficam escondidos para a página não ficar tão comprida.", "Exercises appear first. The guide and quiz stay hidden so the page is not too long.");
+
+  const studySelect = $("studySelect");
+  if (studySelect) {
+    Array.from(studySelect.options).forEach(option => {
+      const labels = moduleLabels[option.value];
+      if (labels) option.textContent = en ? labels.enOption : labels.ptOption;
+    });
+  }
+
+  document.querySelectorAll(".study-choice").forEach(btn => {
+    const labels = moduleLabels[btn.dataset.area];
+    if (!labels) return;
+    const strong = btn.querySelector("strong");
+    const span = btn.querySelector("span");
+    if (strong) strong.textContent = en ? labels.en : labels.pt;
+    if (span) span.textContent = en ? labels.enSub : labels.ptSub;
+  });
+
+  const labBlocks = [
+    ["Cenário de negócio", "Business scenario"],
+    ["Desafio prático", "Practical challenge"],
+    ["Consola de resolução", "Solution console"]
+  ];
+  document.querySelectorAll("#lab .block h4").forEach((h4, index) => {
+    const label = labBlocks[index];
+    if (label) h4.textContent = en ? label[1] : label[0];
+  });
+
+  setText("#saveBtn", "Guardar rascunho", "Save draft");
+  setText("#completeBtn", "Marcar como concluído", "Mark as completed");
+  setText("#solutionBtn", "Mostrar solução", "Show solution");
+  setText("#clearBtn", "Limpar", "Clear");
+  setText("#exportProgressBtn", "Exportar progresso", "Export progress");
+  setText("#insertReflectionBtn", "Inserir template de reflexão", "Insert reflection template");
+  setText("#generateEvidenceBtn", "Gerar mini case study", "Generate mini case study");
+  setText("#gradeQuizBtn", "Corrigir avaliação", "Grade assessment");
+
+  const searchInput = $("searchInput");
+  if (searchInput) searchInput.placeholder = en ? "Search: SQL, Python, DAX, Gherkin..." : "Pesquisar: SQL, Python, DAX, Gherkin...";
+  const answerBox = $("answerBox");
+  if (answerBox) answerBox.placeholder = en ? "Write the SQL query, DAX, User Story, reasoning or action plan here..." : "Escreve aqui a query SQL, DAX, User Story, raciocínio ou plano de ação...";
 }
 
 function init() {
@@ -3088,6 +3548,8 @@ function init() {
     const modalBackdrop = $("modalBackdrop"); if (modalBackdrop) modalBackdrop.addEventListener("click", e => { if (e.target.id === "modalBackdrop") closeModal(); });
 
     document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener("click", () => { const nav=$("navLinks"); if(nav) nav.classList.remove("open"); }));
+    applyStaticTranslations();
+    syncLanguageLabels();
   });
 }
 
@@ -3105,7 +3567,11 @@ function renderExercises(filter = "") {
   });
 
   const counter = $("studyCounter");
-  if (counter) counter.textContent = filtered.length + " níveis encontrados" + (currentStudyArea === "Todos" ? "" : " em " + currentStudyArea);
+  if (counter) {
+    counter.textContent = currentLang === "en"
+      ? filtered.length + " levels found" + (currentStudyArea === "Todos" ? "" : " in " + currentStudyArea)
+      : filtered.length + " níveis encontrados" + (currentStudyArea === "Todos" ? "" : " em " + currentStudyArea);
+  }
 
   filtered.forEach(ex => {
     if (ex.group !== group) {
@@ -3125,9 +3591,11 @@ function renderExercises(filter = "") {
   if (filtered.length === 0) {
     const empty = document.createElement("div");
     empty.className = "card";
-    empty.innerHTML = "<p>Não foram encontrados exercícios para este filtro.</p>";
+    empty.innerHTML = currentLang === "en" ? "<p>No exercises were found for this filter.</p>" : "<p>Não foram encontrados exercícios para este filtro.</p>";
     list.appendChild(empty);
   }
+  applyStaticTranslations(list);
+  syncLanguageLabels();
 }
 
 function setStudyArea(area) {
@@ -3141,7 +3609,7 @@ function setStudyArea(area) {
   renderModuleQuiz();
   const first = exercises.find(ex => currentStudyArea === "Todos" || ex.area === currentStudyArea);
   if (first) loadExercise(first.id);
-  showToast("Módulo selecionado: " + (currentStudyArea === "Todos" ? "Todos os módulos" : currentStudyArea));
+  showToast(currentLang === "en" ? "Module selected: " + (currentStudyArea === "Todos" ? "All modules" : currentStudyArea) : "Módulo selecionado: " + (currentStudyArea === "Todos" ? "Todos os módulos" : currentStudyArea));
 }
 
 function loadExercise(id) {
@@ -3156,6 +3624,8 @@ function loadExercise(id) {
   if ($("solutionBox")) { $("solutionBox").textContent = formatExerciseSolution(currentExercise); $("solutionBox").style.display = "none"; }
   if ($("answerBox")) $("answerBox").value = localStorage.getItem(draftKey(currentExercise.id)) || "";
   renderExercises($("searchInput") ? $("searchInput").value : "");
+  applyStaticTranslations();
+  syncLanguageLabels();
 }
 
 function formatExerciseSolution(exercise) {
@@ -3174,7 +3644,7 @@ function saveDraft() {
   if (!currentExercise) return;
   localStorage.setItem(draftKey(currentExercise.id), $("answerBox") ? $("answerBox").value : "");
   updateDashboard();
-  showToast("Rascunho guardado neste browser.");
+  showToast(currentLang === "en" ? "Draft saved in this browser." : "Rascunho guardado neste browser.");
 }
 
 function completeExercise() {
@@ -3185,7 +3655,7 @@ function completeExercise() {
   setCompleted(ids);
   updateDashboard();
   renderExercises($("searchInput") ? $("searchInput").value : "");
-  showToast("Exercício concluído! +" + currentExercise.xp + " XP");
+  showToast(currentLang === "en" ? "Exercise completed! +" + currentExercise.xp + " XP" : "Exercício concluído! +" + currentExercise.xp + " XP");
 }
 
 function toggleSolution() {
@@ -3199,7 +3669,7 @@ function clearDraft() {
   localStorage.removeItem(draftKey(currentExercise.id));
   if ($("answerBox")) $("answerBox").value = "";
   updateDashboard();
-  showToast("Resposta limpa.");
+  showToast(currentLang === "en" ? "Answer cleared." : "Resposta limpa.");
 }
 
 function updateDashboard() {
@@ -3237,8 +3707,8 @@ function renderModuleQuiz() {
   if (!wrap) return;
   const area = moduleQuizzes[currentStudyArea] ? currentStudyArea : "Todos";
   const quiz = moduleQuizzes[area] || [];
-  if ($("quizTitle")) $("quizTitle").textContent = area === "Todos" ? "Quiz geral da sebenta" : "Quiz: " + area;
-  if ($("quizIntro")) $("quizIntro").textContent = "Responde às perguntas para validar se já dominas este módulo.";
+  if ($("quizTitle")) $("quizTitle").textContent = currentLang === "en" ? (area === "Todos" ? "General workbook quiz" : "Quiz: " + area) : (area === "Todos" ? "Quiz geral da sebenta" : "Quiz: " + area);
+  if ($("quizIntro")) $("quizIntro").textContent = currentLang === "en" ? "Answer the questions to validate whether you already understand this module." : "Responde às perguntas para validar se já dominas este módulo.";
   if ($("quizResult")) { $("quizResult").style.display = "none"; $("quizResult").textContent = ""; }
   wrap.innerHTML = quiz.map((item, idx) => `
     <div class="quiz-question">
@@ -3251,6 +3721,8 @@ function renderModuleQuiz() {
           </label>`).join("")}
       </div>
     </div>`).join("");
+  applyStaticTranslations(wrap);
+  syncLanguageLabels();
 }
 
 function gradeModuleQuiz() {
@@ -3269,8 +3741,11 @@ function gradeModuleQuiz() {
   const pct = quiz.length ? Math.round((score / quiz.length) * 100) : 0;
   localStorage.setItem("quiz_score_" + area, JSON.stringify({score, total: quiz.length, pct, date: new Date().toISOString()}));
   result.style.display = "block";
-  result.innerHTML = `Resultado: ${score}/${quiz.length} (${pct}%). <ul style="margin:10px 0 0 18px">${details}</ul>`;
-  showToast("Avaliação corrigida: " + pct + "%");
+  result.innerHTML = currentLang === "en"
+    ? `Result: ${score}/${quiz.length} (${pct}%). <ul style="margin:10px 0 0 18px">${details}</ul>`
+    : `Resultado: ${score}/${quiz.length} (${pct}%). <ul style="margin:10px 0 0 18px">${details}</ul>`;
+  showToast(currentLang === "en" ? "Assessment graded: " + pct + "%" : "Avaliação corrigida: " + pct + "%");
+  applyStaticTranslations(result);
 }
 
 function evaluateInterview() {
@@ -3282,7 +3757,9 @@ function evaluateInterview() {
   if (!fb) return;
   if (!raw) {
     fb.style.display = "block";
-    fb.innerHTML = `<strong>Feedback</strong><p style="margin-top:10px">Escreve uma resposta primeiro para eu conseguir avaliá-la.</p>`;
+    fb.innerHTML = currentLang === "en"
+      ? `<strong>Feedback</strong><p style="margin-top:10px">Write an answer first so it can be evaluated.</p>`
+      : `<strong>Feedback</strong><p style="margin-top:10px">Escreve uma resposta primeiro para eu conseguir avaliá-la.</p>`;
     return;
   }
 
@@ -3324,7 +3801,7 @@ function evaluateInterview() {
 
 function saveInterview() {
   localStorage.setItem("interview_v7", $("interviewAnswer") ? $("interviewAnswer").value : "");
-  showToast("Resposta de entrevista guardada neste browser.");
+  showToast(currentLang === "en" ? "Interview answer saved in this browser." : "Resposta de entrevista guardada neste browser.");
 }
 
 function renderLibrary() {
@@ -3337,6 +3814,7 @@ function renderLibrary() {
     c.addEventListener("click", () => openInfo(t, d));
     grid.appendChild(c);
   });
+  applyStaticTranslations(grid);
 }
 
 function toggleRecruiter() {
@@ -3344,7 +3822,7 @@ function toggleRecruiter() {
   const active = document.body.classList.contains("recruiter-mode");
   if ($("modeBtn")) $("modeBtn").textContent = active ? "Study Mode" : "Recruiter Mode";
   updateDashboard();
-  showToast(active ? "Recruiter Mode ativado." : "Study Mode ativado.");
+  showToast(currentLang === "en" ? (active ? "Recruiter Mode enabled." : "Study Mode enabled.") : (active ? "Recruiter Mode ativado." : "Study Mode ativado."));
 }
 
 function toggleDarkMode() {
@@ -3362,11 +3840,16 @@ function toggleLang() {
   if ($("langBtn")) $("langBtn").textContent = currentLang === "pt" ? "EN" : "PT";
   document.documentElement.lang = currentLang;
   document.querySelectorAll("[data-pt]").forEach(el => { el.textContent = el.dataset[currentLang]; });
+  applyStaticTranslations();
+  renderModuleQuiz();
+  renderExercises($("searchInput") ? $("searchInput").value : "");
+  syncLanguageLabels();
   showToast(currentLang === "pt" ? "Idioma alterado para português." : "Language changed to English.");
 }
 
 function openProject(key) {
-  const p = projectDetails[key];
+  const useEnglishSummary = currentLang === "en" && projectDetailsEn[key];
+  const p = useEnglishSummary ? projectDetailsEn[key] : projectDetails[key];
   if (!p) return;
 
   const tags = (p.tags || []).map(t => `<span style="display:inline-flex;padding:4px 10px;border-radius:999px;font-size:.72rem;font-weight:900;text-transform:uppercase;background:#dbeafe;color:#1d4ed8;margin:0 4px 4px 0">${t}</span>`).join("");
@@ -3379,12 +3862,12 @@ function openProject(key) {
       <p style="color:#dbeafe;font-size:.95rem;margin:0">${p.subtitle}</p>
     </div>
     <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:16px 18px;margin-bottom:20px;color:#243244;font-size:.92rem;line-height:1.65">
-      <strong style="display:block;color:#0f172a;margin-bottom:6px">Contexto</strong>${p.context}
+      <strong style="display:block;color:#0f172a;margin-bottom:6px">${currentLang === "en" ? "Context" : "Contexto"}</strong>${p.context}
     </div>`;
 
   let body = "";
 
-  if (key === "sql") {
+  if (key === "sql" && !useEnglishSummary) {
     const schemaBlock = `
       <div class="modal-section">
         <h4>Esquema de dados</h4>
@@ -3402,7 +3885,7 @@ function openProject(key) {
     body = schemaBlock + `<div class="modal-section"><h4>Queries — biblioteca de análise financeira</h4>${queryBlocks}</div>`;
   }
 
-  if (key === "finance") {
+  if (key === "finance" && !useEnglishSummary) {
     const modelBlock = `
       <div class="modal-section">
         <h4>Modelo de dados — Star Schema</h4>
@@ -3443,7 +3926,7 @@ function openProject(key) {
     body = modelBlock + measuresBlock + pagesBlock;
   }
 
-  if (key === "process") {
+  if (key === "process" && !useEnglishSummary) {
     const asisBlock = `
       <div class="modal-section">
         <h4>Estado AS-IS — processo actual (6 dias úteis)</h4>
@@ -3506,7 +3989,7 @@ function openProject(key) {
   if (p.sections) {
     body = `
       <div class="modal-section">
-        <h4>Estrutura do case study</h4>
+        <h4>${currentLang === "en" ? "Case study structure" : "Estrutura do case study"}</h4>
         <div style="display:grid;gap:12px">
           ${p.sections.map(section => `
             <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:14px 16px">
@@ -3521,11 +4004,12 @@ function openProject(key) {
 
   const skillsBlock = `
     <div class="modal-section">
-      <h4>Competências demonstradas</h4>
+      <h4>${currentLang === "en" ? "Skills demonstrated" : "Competências demonstradas"}</h4>
       <div>${skills}</div>
     </div>`;
 
   openModal(header + body + skillsBlock);
+  applyStaticTranslations($("modalContent"));
 }
 
 function openResource(key) {
@@ -3533,9 +4017,10 @@ function openResource(key) {
   if (!r) return;
   const items = (r.items || []).map(item => `<li>${item}</li>`).join("");
   openModal(`<h3>${r.title}</h3>
-    <div class="modal-section"><p>${r.summary || "Recurso do projeto."}</p></div>
-    <div class="modal-section"><h4>Checklist acionável</h4><ul>${items}</ul></div>
+    <div class="modal-section"><p>${r.summary || (currentLang === "en" ? "Project resource." : "Recurso do projeto.")}</p></div>
+    <div class="modal-section"><h4>${currentLang === "en" ? "Actionable checklist" : "Checklist acionável"}</h4><ul>${items}</ul></div>
     <div class="modal-section"><button class="btn btn-blue" onclick="downloadResource('${key}')">Download checklist .txt</button></div>`);
+  applyStaticTranslations($("modalContent"));
 }
 
 function downloadResource(key) {
@@ -3554,7 +4039,7 @@ function exportProgress() {
     drafts: exercises.filter(e => localStorage.getItem(draftKey(e.id))).map(e => ({ id:e.id, area:e.area, title:e.title, answer: localStorage.getItem(draftKey(e.id)) }))
   };
   downloadText("learning_lab_progress.json", JSON.stringify(payload, null, 2));
-  showToast("Progresso exportado em JSON.");
+  showToast(currentLang === "en" ? "Progress exported as JSON." : "Progresso exportado em JSON.");
 }
 
 function downloadText(filename, text) {
@@ -3851,7 +4336,9 @@ window.addEventListener("DOMContentLoaded", initAcademy);
       if(moduleBtn){
         moduleBtn.addEventListener("click", () => {
           document.body.classList.toggle("show-module-guide");
-          moduleBtn.textContent = document.body.classList.contains("show-module-guide") ? "Esconder guia dos módulos" : "Mostrar guia dos módulos";
+          moduleBtn.textContent = currentLang === "en"
+            ? (document.body.classList.contains("show-module-guide") ? "Hide module guide" : "Show module guide")
+            : (document.body.classList.contains("show-module-guide") ? "Esconder guia dos módulos" : "Mostrar guia dos módulos");
         });
       }
 
@@ -3859,7 +4346,9 @@ window.addEventListener("DOMContentLoaded", initAcademy);
       if(quizBtn){
         quizBtn.addEventListener("click", () => {
           document.body.classList.toggle("show-quiz-panel");
-          quizBtn.textContent = document.body.classList.contains("show-quiz-panel") ? "Esconder avaliação" : "Mostrar avaliação";
+          quizBtn.textContent = currentLang === "en"
+            ? (document.body.classList.contains("show-quiz-panel") ? "Hide assessment" : "Show assessment")
+            : (document.body.classList.contains("show-quiz-panel") ? "Esconder avaliação" : "Mostrar avaliação");
         });
       }
     }
