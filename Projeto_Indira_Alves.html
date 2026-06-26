@@ -267,6 +267,55 @@ footer {padding:34px 0;text-align:center;color:var(--muted);font-size:.9rem}
   color:var(--primary);
   margin-bottom:4px;
 }
+.quiz-panel {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  margin:22px 0 26px;
+}
+.quiz-head {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:16px;
+}
+.quiz-head p {color:var(--muted)}
+.quiz-question {
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:12px;
+}
+.quiz-question strong {
+  display:block;
+  color:var(--primary);
+  margin-bottom:10px;
+}
+.quiz-options {
+  display:grid;
+  gap:8px;
+}
+.quiz-option {
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  color:var(--muted);
+  font-weight:750;
+}
+.quiz-result {
+  display:none;
+  margin-top:14px;
+  padding:14px;
+  border-radius:16px;
+  background:rgba(20,184,166,.10);
+  border:1px solid rgba(20,184,166,.35);
+  color:var(--text);
+  font-weight:800;
+}
 
 
 
@@ -375,6 +424,18 @@ body.compact-layout .section-head {margin-bottom:20px;}
 body.compact-layout .section-head h2 {font-size:1.85rem;}
 body.compact-layout .mode-pill {margin-top:14px;}
 body.compact-layout .nav-links {gap:14px;}
+body.compact-layout #lab {padding-top:30px;}
+body.compact-layout #lab .section-head {margin-bottom:14px;}
+body.compact-layout #lab .section-head p {max-width:760px;}
+body.compact-layout #lab .study-toolbar {margin:10px 0 12px;}
+body.compact-layout #lab .study-selector {grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:14px 0 16px;}
+body.compact-layout #lab .study-choice {padding:12px;border-radius:15px;}
+body.compact-layout #lab .study-choice span {font-size:.78rem;}
+body:not(.show-module-guide) #lab .study-instructions,
+body:not(.show-module-guide) #lab .module-explainer {display:none;}
+body:not(.show-quiz-panel) #lab #quizPanel {display:none;}
+.fast-study-actions {display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 14px;}
+.fast-note {color:var(--muted);font-weight:750;font-size:.92rem;margin-top:4px;}
 .compact-hub {padding:30px 0 8px;background:linear-gradient(180deg,rgba(37,99,235,.06),transparent);}
 .compact-headline {margin-bottom:18px!important;}
 .hub-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;}
@@ -411,9 +472,9 @@ body.recruiter-mode #quick-hub {display:none!important;}
     </a>
     <button class="btn btn-ghost mobile-menu-btn" id="menuBtn">Menu</button>
     <div class="nav-links" id="navLinks">
+      <a href="#lab" class="study-only" data-expand-section="lab">Exercícios</a>
       <a href="#featured" data-pt="Sebenta" data-en="Workbook">Sebenta</a>
       <a href="#study-home" class="study-only" data-pt="Academia" data-en="Academy">Academia</a>
-      <a href="#lab" class="study-only" data-expand-section="lab">Exercícios</a>
       <a href="#interviews" class="study-only" data-pt="Entrevistas" data-en="Interviews" data-expand-section="interviews">Entrevistas</a>
       <a href="#experience" data-pt="Experiência" data-en="Experience" data-expand-section="experience">Experiência</a>
       <a href="#contact" data-pt="Contacto" data-en="Contact">Contacto</a>
@@ -433,10 +494,11 @@ body.recruiter-mode #quick-hub {display:none!important;}
       <h1 data-pt="Portefólio profissional e academia pessoal para Business Analysis, dados e transformação financeira." data-en="Professional portfolio and personal learning academy for Business Analysis, data and finance transformation.">Portefólio profissional e academia pessoal para Business Analysis, dados e transformação financeira.</h1>
       <p data-pt="Uma plataforma prática para mostrar experiência, estudar de forma guiada e transformar exercícios em evidências de portefólio para Business Analysis, Reporting, FP&A e Finance Transformation." data-en="A practical platform to showcase experience, study with structure and convert exercises into portfolio evidence for Business Analysis, Reporting, FP&A and Finance Transformation roles.">Uma plataforma prática para mostrar experiência, estudar de forma guiada e transformar exercícios em evidências de portefólio para Business Analysis, Reporting, FP&A e Finance Transformation.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#featured" data-pt="Ver plano da sebenta" data-en="View workbook plan">Ver plano da sebenta</a>
+        <a class="btn btn-primary study-only" href="#lab" data-expand-section="lab">Começar exercícios</a>
+        <a class="btn btn-outline" href="#featured" data-pt="Ver plano da sebenta" data-en="View workbook plan">Ver plano da sebenta</a>
         <a class="btn btn-outline study-only" href="#study-home" data-pt="Abrir academia" data-en="Open academy">Abrir academia</a>
-        <a class="btn btn-white" href="assets/Indira_Alves_CV_PT.pdf" download="Indira_Alves_CV_PT.pdf">CV PT</a>
-        <a class="btn btn-white" href="assets/Indira_Alves_CV_EN.pdf" download="Indira_Alves_CV_EN.pdf">CV EN</a>
+        <a class="btn btn-white" href="assets/documents/cv_pt.md" download="Indira_Alves_CV_PT.md">CV PT</a>
+        <a class="btn btn-white" href="assets/documents/cv_en.md" download="Indira_Alves_CV_EN.md">CV EN</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/indira-cristina-alves/" target="_blank">LinkedIn</a>
       </div>
       <div class="mode-pill study-only">Study Mode ativo · Learning Lab, XP e simulador de entrevistas visíveis</div>
@@ -605,7 +667,7 @@ body.recruiter-mode #quick-hub {display:none!important;}
         <h3>1. Queries SQL no GitHub</h3>
         <div class="visual code-mock" style="font-size:.74rem;line-height:1.5;overflow:hidden">SELECT c.segmento,<br>&nbsp;&nbsp;SUM(f.valor_total) AS receita,<br>&nbsp;&nbsp;COUNT(f.fatura_id) AS n_faturas,<br>&nbsp;&nbsp;ROUND(100.0 * SUM(<br>&nbsp;&nbsp;&nbsp;&nbsp;CASE WHEN f.estado='Pago'<br>&nbsp;&nbsp;&nbsp;&nbsp;THEN f.valor_total ELSE 0 END)<br>&nbsp;&nbsp;/ SUM(f.valor_total), 1) AS pct_cobrado<br>FROM Faturas f<br>JOIN Clientes c USING (cliente_id)<br>GROUP BY c.segmento;</div>
         <p>Repositório com queries SQL, dataset sintético, README, screenshots e explicação das perguntas de negócio respondidas.</p>
-        <div class="project-footer"><button class="btn btn-blue open-project" data-project="sql">View case study</button><button class="btn btn-ghost resource-btn" data-resource="github">GitHub</button></div>
+        <div class="project-footer"><button class="btn btn-blue open-project" data-project="sql">View case study</button><a class="btn btn-ghost" href="https://github.com/indiralves/Business-Analyst" target="_blank" rel="noopener">GitHub</a><button class="btn btn-ghost resource-btn" data-resource="github">Checklist</button></div>
       </div>
       <div class="card project-card">
         <span class="tag green">Power BI · DAX</span>
@@ -658,7 +720,7 @@ body.recruiter-mode #quick-hub {display:none!important;}
           </svg>
         </div>
         <p>Dashboard financeiro com KPIs, Budget vs Actual, margem, evolução mensal, medidas DAX e interpretação executiva.</p>
-        <div class="project-footer"><button class="btn btn-blue open-project" data-project="finance">View case study</button><button class="btn btn-ghost resource-btn" data-resource="powerbi">Power BI</button></div>
+        <div class="project-footer"><button class="btn btn-blue open-project" data-project="finance">View case study</button><a class="btn btn-ghost" href="https://github.com/indiralves/Business-Analyst/tree/main/power-bi" target="_blank" rel="noopener">Power BI</a><button class="btn btn-ghost resource-btn" data-resource="powerbi">Checklist</button></div>
       </div>
       <div class="card project-card">
         <span class="tag purple">BPMN · Process</span>
@@ -708,21 +770,21 @@ body.recruiter-mode #quick-hub {display:none!important;}
           </svg>
         </div>
         <p>Mapa AS-IS/TO-BE com gargalos, handoffs, riscos, oportunidades de automação e requisitos associados.</p>
-        <div class="project-footer"><button class="btn btn-blue open-project" data-project="process">View case study</button><button class="btn btn-ghost resource-btn" data-resource="bpmn">BPMN</button></div>
+        <div class="project-footer"><button class="btn btn-blue open-project" data-project="process">View case study</button><a class="btn btn-ghost" href="assets/screenshots/bpmn-record-to-report.svg" target="_blank" rel="noopener">Abrir BPMN</a><button class="btn btn-ghost resource-btn" data-resource="bpmn">Checklist</button></div>
       </div>
       <div class="card project-card">
         <span class="tag amber">Jira · Agile</span>
         <h3>3. Projeto Jira</h3>
         <div class="visual code-mock" style="font-size:.76rem;line-height:1.55;overflow:hidden">Epic: Automatizar reporting mensal<br><br>Story: As a Controller,<br>I want to refresh monthly data automatically,<br>so that I reduce manual checks.<br><br>Acceptance Criteria:<br>- Given valid source files<br>- When refresh runs<br>- Then exceptions are flagged</div>
         <p>Backlog simulado com epic, user stories, tasks, bugs, prioridades, critérios de aceitação e Definition of Done.</p>
-        <div class="project-footer"><button class="btn btn-ghost resource-btn" data-resource="jira">Checklist Jira</button></div>
+        <div class="project-footer"><button class="btn btn-blue open-project" data-project="jira">View case study</button><a class="btn btn-ghost" href="https://github.com/indiralves/Business-Analyst/tree/main/jira" target="_blank" rel="noopener">GitHub</a><button class="btn btn-ghost resource-btn" data-resource="jira">Checklist</button></div>
       </div>
       <div class="card project-card">
         <span class="tag">Confluence · Documentation</span>
         <h3>4. Documentação Confluence</h3>
         <div class="visual code-mock" style="font-size:.76rem;line-height:1.55;overflow:hidden">BRD / FRD<br><br>1. Contexto<br>2. Problema de negócio<br>3. Stakeholders<br>4. Requisitos funcionais<br>5. Regras de negócio<br>6. Casos de teste<br>7. Riscos e dependências</div>
         <p>Página funcional com contexto, requisitos, regras de negócio, critérios de aceitação, RACI e plano de validação.</p>
-        <div class="project-footer"><button class="btn btn-ghost resource-btn" data-resource="confluence">Checklist Confluence</button></div>
+        <div class="project-footer"><button class="btn btn-blue open-project" data-project="confluence">View case study</button><a class="btn btn-ghost" href="https://github.com/indiralves/Business-Analyst/tree/main/confluence" target="_blank" rel="noopener">GitHub</a><button class="btn btn-ghost resource-btn" data-resource="confluence">Checklist</button></div>
       </div>
     </div>
   </div>
@@ -1132,6 +1194,19 @@ body.recruiter-mode #quick-hub {display:none!important;}
       <button class="study-choice" data-area="Portfolio"><strong>Portfolio</strong><span>GitHub, case studies</span></button>
     </div>
 
+    <div class="quiz-panel" id="quizPanel">
+      <div class="quiz-head">
+        <div>
+          <span class="tag amber">Avaliação de nível</span>
+          <h3 id="quizTitle">Quiz rápido da sebenta</h3>
+          <p id="quizIntro">Escolhe um módulo acima para responder a perguntas de verdadeiro/falso e escolha múltipla.</p>
+        </div>
+        <button class="btn btn-blue" id="gradeQuizBtn">Corrigir avaliação</button>
+      </div>
+      <div id="quizQuestions"></div>
+      <div class="quiz-result" id="quizResult"></div>
+    </div>
+
     <div class="lab-layout">
       <aside class="lab-sidebar">
         <input id="searchInput" class="search" type="search" placeholder="Pesquisar: SQL, DAX, Gherkin..." />
@@ -1252,8 +1327,8 @@ body.recruiter-mode #quick-hub {display:none!important;}
             </div>
           </div>
           <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
-            <a class="btn btn-blue" href="assets/Indira_Alves_CV_PT.pdf" download="Indira_Alves_CV_PT.pdf">Download CV PT</a>
-            <a class="btn btn-ghost" href="assets/Indira_Alves_CV_EN.pdf" download="Indira_Alves_CV_EN.pdf">Download CV EN</a>
+            <a class="btn btn-blue" href="assets/documents/cv_pt.md" download="Indira_Alves_CV_PT.md">Download CV PT</a>
+            <a class="btn btn-ghost" href="assets/documents/cv_en.md" download="Indira_Alves_CV_EN.md">Download CV EN</a>
           </div>
         </div>
       </div>
@@ -2321,6 +2396,32 @@ LIMIT 10;`
       "RNF02 — Rastreabilidade completa de cada transformação aplicada"
     ],
     "skills": ["BPMN 2.0", "AS-IS/TO-BE", "Gap analysis", "Process improvement", "Requirements engineering", "Automation design", "R2R", "SAP", "Power Query"]
+  },
+  "jira": {
+    "title": "Jira Agile Backlog",
+    "subtitle": "Backlog funcional para automatizacao de reporting mensal",
+    "tags": ["Jira", "Agile", "User Stories", "Acceptance Criteria"],
+    "context": "Este case study simula a passagem de uma necessidade de negocio para um backlog Agile. O objetivo e mostrar capacidade de transformar um problema operacional em epics, user stories, tasks, bugs, prioridades e criterios de aceitacao testaveis.",
+    "sections": [
+      {"title":"Epic", "items":["Automatizar reporting mensal financeiro para reduzir tarefas manuais, melhorar qualidade dos dados e acelerar a analise de desvios."]},
+      {"title":"User stories", "items":["Como Controller, quero atualizar dados mensais automaticamente, para reduzir validacoes manuais.", "Como Manager, quero ver excecoes antes do fecho, para aprovar informacao com mais confianca.", "Como Business Analyst, quero documentar regras de validacao, para alinhar negocio e equipa tecnica."]},
+      {"title":"Acceptance criteria", "items":["Given que os ficheiros fonte estao disponiveis, When o refresh corre, Then os dados sao importados e validados.", "Given que existe diferenca acima da tolerancia, When a validacao termina, Then a excecao fica visivel no output.", "Given que uma regra muda, When a documentacao e atualizada, Then a equipa consegue repetir o teste."]},
+      {"title":"Definition of Done", "items":["Requisitos aprovados", "Critérios de aceitacao escritos", "Teste com ficheiro exemplo concluido", "Output de excecoes gerado", "Documentacao em Confluence atualizada"]}
+    ],
+    "skills": ["Jira", "Scrum", "Backlog", "User stories", "Gherkin", "Prioritizacao", "Definition of Done"]
+  },
+  "confluence": {
+    "title": "Confluence Functional Documentation",
+    "subtitle": "Pagina funcional para um processo de reporting mensal",
+    "tags": ["Confluence", "BRD", "FRD", "Documentation", "Business Analysis"],
+    "context": "Este case study mostra como documentar uma solucao funcional de forma clara para negocio e equipa tecnica. A pagina inclui contexto, problema, stakeholders, requisitos, regras de negocio, excecoes, testes e riscos.",
+    "sections": [
+      {"title":"Contexto e problema", "items":["O reporting mensal depende de extrações manuais e ficheiros Excel.", "O processo tem risco de erro, baixa rastreabilidade e duplicacao de trabalho."]},
+      {"title":"Stakeholders", "items":["Controller: valida dados e explica desvios.", "Business Analyst: levanta requisitos e documenta regras.", "Manager: aprova output final.", "IT/Data: apoia integracao tecnica."]},
+      {"title":"Requisitos funcionais", "items":["Importar ficheiros mensais.", "Validar colunas obrigatorias.", "Identificar excecoes.", "Gerar output para dashboard.", "Guardar rastreabilidade das transformacoes."]},
+      {"title":"Casos de teste", "items":["Ficheiro correto deve carregar sem erro.", "Coluna em falta deve gerar alerta.", "Total nao reconciliado deve aparecer em excecoes."]}
+    ],
+    "skills": ["Confluence", "Functional documentation", "BRD", "FRD", "RACI", "Requirements", "Test cases"]
   }
 };
 const questions = [
@@ -2497,6 +2598,59 @@ const resources = {
   }
 };
 
+const moduleQuizzes = {
+  "Todos": [
+    {type:"tf", q:"A sebenta deve terminar em evidencias publicaveis, nao apenas em apontamentos.", options:["Verdadeiro","Falso"], answer:0, explain:"O objetivo e transformar estudo em provas: queries, dashboard, backlog, documentacao e BPMN."},
+    {type:"mc", q:"Qual e a sequencia mais alinhada com o plano?", options:["Estudar -> praticar -> documentar -> publicar evidencias","Publicar primeiro -> estudar depois","Fazer so dashboards","Focar apenas em entrevistas"], answer:0, explain:"O plano liga aprendizagem, exercicios e evidencias finais."},
+    {type:"mc", q:"Quais sao as 5 evidencias finais?", options:["SQL, Power BI, Jira, Confluence e BPMN","Python, Java, SAP, Primavera e Canva","CV, carta, email, foto e certificado","Excel, Word, Outlook, Teams e OneDrive"], answer:0, explain:"Essas sao as evidencias previstas na sebenta."}
+  ],
+  "SQL": [
+    {type:"tf", q:"WHERE filtra linhas antes da agregacao e HAVING filtra grupos depois do GROUP BY.", options:["Verdadeiro","Falso"], answer:0, explain:"Esta e a diferenca essencial entre WHERE e HAVING."},
+    {type:"mc", q:"Que JOIN ajuda a encontrar faturas sem lancamentos?", options:["LEFT JOIN com filtro de NULL","INNER JOIN apenas","CROSS JOIN","ORDER BY"], answer:0, explain:"LEFT JOIN mantem os registos da tabela principal e permite encontrar faltas."},
+    {type:"mc", q:"Qual evidencia deve ficar no GitHub?", options:["Query, resultado, contexto de negocio e README","Apenas um print sem explicacao","So o ficheiro final","Apenas teoria"], answer:0, explain:"O recrutador precisa perceber problema, metodo e resultado."}
+  ],
+  "Power Query": [
+    {type:"tf", q:"Power Query funciona como camada de ETL: importar, limpar, transformar e combinar dados.", options:["Verdadeiro","Falso"], answer:0, explain:"E uma boa forma de explicar Power Query em contexto financeiro."},
+    {type:"mc", q:"Qual etapa melhora mais a rastreabilidade?", options:["Applied Steps com transformacoes nomeadas","Copiar e colar valores","Editar celulas manualmente","Apagar erros sem registar"], answer:0, explain:"Applied Steps permite repetir e auditar o processo."},
+    {type:"mc", q:"Que evidencia de Power Query deves guardar?", options:["Antes/depois dos dados e print das Applied Steps","So o ficheiro final","Apenas uma descricao vaga","Um print do Excel vazio"], answer:0, explain:"Mostra transformacao e metodo."}
+  ],
+  "Power BI": [
+    {type:"tf", q:"Um dashboard bom responde a perguntas de negocio, nao apenas mostra graficos bonitos.", options:["Verdadeiro","Falso"], answer:0, explain:"KPI, contexto e decisao importam mais do que decoracao."},
+    {type:"mc", q:"Qual medida calcula desvio percentual com seguranca?", options:["DIVIDE([Desvio], [Budget], 0)","[Desvio] / [Budget] sem controlo","SUM([Desvio %])","COUNT([Budget])"], answer:0, explain:"DIVIDE evita erros quando o denominador e zero."},
+    {type:"mc", q:"Que evidencias Power BI devem existir?", options:["Dashboard, modelo, medidas DAX e insights","So uma imagem bonita","So a base de dados","So o nome dos KPIs"], answer:0, explain:"A evidencia deve mostrar construcao e interpretacao."}
+  ],
+  "Business Analysis": [
+    {type:"tf", q:"Uma user story deve ser acompanhada por criterios de aceitacao testaveis.", options:["Verdadeiro","Falso"], answer:0, explain:"Sem criterios, a equipa nao sabe quando a entrega esta concluida."},
+    {type:"mc", q:"Qual formato e mais adequado para acceptance criteria?", options:["Given / When / Then","Era uma vez","Apenas bullets vagos","Um email informal"], answer:0, explain:"Gherkin torna os criterios claros e testaveis."},
+    {type:"mc", q:"O que vem primeiro no levantamento de requisitos?", options:["Entender stakeholder, dor e objetivo","Desenhar logo a solucao final","Criar dashboard sem perguntas","Publicar no GitHub"], answer:0, explain:"Business Analysis comeca por compreender o problema."}
+  ],
+  "BPMN": [
+    {type:"tf", q:"BPMN ajuda a mostrar tarefas, decisoes, responsabilidades e handoffs.", options:["Verdadeiro","Falso"], answer:0, explain:"E util para processos AS-IS e TO-BE."},
+    {type:"mc", q:"O que representa um gateway exclusivo?", options:["Uma decisao com caminhos alternativos","Uma tarefa manual","Um anexo","Um KPI financeiro"], answer:0, explain:"Gateways modelam decisoes no processo."},
+    {type:"mc", q:"Que evidencia BPMN deve ficar no portfolio?", options:["AS-IS, TO-BE e tabela de melhorias","Apenas um titulo","So texto corrido","Uma lista sem fluxo"], answer:0, explain:"O valor esta na comparacao entre estado atual e futuro."}
+  ],
+  "Finance Transformation": [
+    {type:"tf", q:"Finance Transformation liga finanças, processos, dados e automacao.", options:["Verdadeiro","Falso"], answer:0, explain:"E a ponte entre o teu percurso financeiro e funcoes de melhoria."},
+    {type:"mc", q:"Qual pergunta e boa para analisar um desvio de margem?", options:["Foi preco, volume, mix, custo ou one-off?","Qual e a cor do grafico?","Quem enviou o email?","Que fonte usar no titulo?"], answer:0, explain:"A analise deve separar drivers do desvio."},
+    {type:"mc", q:"Que evidencia combina bem com este modulo?", options:["Budget vs Actual, checklist de fecho ou mini P&L","Apenas uma definicao","Uma imagem sem dados","So uma lista de ferramentas"], answer:0, explain:"Tem de mostrar raciocinio financeiro e impacto."}
+  ],
+  "Jira & Agile": [
+    {type:"tf", q:"Jira pode ser usado para organizar epics, stories, tasks, bugs e prioridades.", options:["Verdadeiro","Falso"], answer:0, explain:"E uma ferramenta de gestao de trabalho em equipas Agile."},
+    {type:"mc", q:"O que deve conter uma boa story no Jira?", options:["Contexto, objetivo, criterios de aceitacao e prioridade","Apenas uma frase vaga","So um anexo","Um print sem descricao"], answer:0, explain:"A story deve ser executavel e validavel."},
+    {type:"mc", q:"Qual e a funcao da Definition of Done?", options:["Definir quando uma entrega pode ser considerada concluida","Definir salario","Substituir testes","Escolher o layout"], answer:0, explain:"Ajuda a evitar entregas ambiguas."}
+  ],
+  "Interview Practice": [
+    {type:"tf", q:"Uma boa resposta de entrevista deve ter contexto, acao, ferramenta e resultado.", options:["Verdadeiro","Falso"], answer:0, explain:"Isto torna a resposta concreta e convincente."},
+    {type:"mc", q:"Qual estrutura ajuda em perguntas comportamentais?", options:["STAR","SQL JOIN","BPMN gateway","DAX calendar"], answer:0, explain:"STAR organiza situacao, tarefa, acao e resultado."},
+    {type:"mc", q:"Como explicar uma automacao?", options:["Problema manual, ferramenta usada, validacoes e impacto","Dizer apenas que foi dificil","Falar so do Excel","Evitar resultados"], answer:0, explain:"O impacto e a ponte para a vaga."}
+  ],
+  "Portfolio": [
+    {type:"tf", q:"Um portfolio forte explica problema, metodo, ferramenta, resultado e evidencia.", options:["Verdadeiro","Falso"], answer:0, explain:"Sem contexto, o recrutador nao percebe o valor do trabalho."},
+    {type:"mc", q:"O que deve ter um README profissional?", options:["Contexto, dados, metodologia, resultados, screenshots e como executar","Apenas o nome do projeto","So uma imagem","Nada alem do codigo"], answer:0, explain:"README e a narrativa do projeto."},
+    {type:"mc", q:"Que tipo de evidencia ajuda numa transicao de carreira?", options:["Projetos pequenos, claros e bem documentados","Certificados sem pratica","Texto sem exemplos","Ferramentas listadas sem prova"], answer:0, explain:"A prova pratica compensa a falta de titulo exato no CV."}
+  ]
+};
+
 let currentExercise = null;
 let currentLang = "pt";
 let currentStudyArea = "Todos";
@@ -2521,6 +2675,7 @@ function init() {
   safe(() => {
     renderExercises();
     renderQuestions();
+    renderModuleQuiz();
     renderLibrary();
     loadExercise(exercises[0].id);
     updateDashboard();
@@ -2541,6 +2696,7 @@ function init() {
     const clearBtn = $("clearBtn"); if (clearBtn) clearBtn.addEventListener("click", clearDraft);
     const exportProgressBtn = $("exportProgressBtn"); if (exportProgressBtn) exportProgressBtn.addEventListener("click", exportProgress);
     const evaluateBtn = $("evaluateBtn"); if (evaluateBtn) evaluateBtn.addEventListener("click", evaluateInterview);
+    const gradeQuizBtn = $("gradeQuizBtn"); if (gradeQuizBtn) gradeQuizBtn.addEventListener("click", gradeModuleQuiz);
     const saveInterviewBtn = $("saveInterviewBtn"); if (saveInterviewBtn) saveInterviewBtn.addEventListener("click", saveInterview);
     const modeBtn = $("modeBtn"); if (modeBtn) modeBtn.addEventListener("click", toggleRecruiter);
     const darkBtn = $("darkBtn"); if (darkBtn) darkBtn.addEventListener("click", toggleDarkMode);
@@ -2600,6 +2756,7 @@ function setStudyArea(area) {
   const search = $("searchInput");
   if (search) search.value = "";
   renderExercises("");
+  renderModuleQuiz();
   const first = exercises.find(ex => currentStudyArea === "Todos" || ex.area === currentStudyArea);
   if (first) loadExercise(first.id);
   showToast("Módulo selecionado: " + (currentStudyArea === "Todos" ? "Todos os módulos" : currentStudyArea));
@@ -2679,6 +2836,47 @@ function renderQuestions() {
     o.textContent = q.cat + " — " + q.q;
     s.appendChild(o);
   });
+}
+
+function renderModuleQuiz() {
+  const wrap = $("quizQuestions");
+  if (!wrap) return;
+  const area = moduleQuizzes[currentStudyArea] ? currentStudyArea : "Todos";
+  const quiz = moduleQuizzes[area] || [];
+  if ($("quizTitle")) $("quizTitle").textContent = area === "Todos" ? "Quiz geral da sebenta" : "Quiz: " + area;
+  if ($("quizIntro")) $("quizIntro").textContent = "Responde às perguntas para validar se já dominas este módulo.";
+  if ($("quizResult")) { $("quizResult").style.display = "none"; $("quizResult").textContent = ""; }
+  wrap.innerHTML = quiz.map((item, idx) => `
+    <div class="quiz-question">
+      <strong>${idx + 1}. ${item.q}</strong>
+      <div class="quiz-options">
+        ${item.options.map((option, optIdx) => `
+          <label class="quiz-option">
+            <input type="radio" name="quiz_${idx}" value="${optIdx}" />
+            <span>${option}</span>
+          </label>`).join("")}
+      </div>
+    </div>`).join("");
+}
+
+function gradeModuleQuiz() {
+  const area = moduleQuizzes[currentStudyArea] ? currentStudyArea : "Todos";
+  const quiz = moduleQuizzes[area] || [];
+  let score = 0;
+  const details = quiz.map((item, idx) => {
+    const selected = document.querySelector(`input[name="quiz_${idx}"]:checked`);
+    const selectedValue = selected ? parseInt(selected.value, 10) : -1;
+    const ok = selectedValue === item.answer;
+    if (ok) score += 1;
+    return `<li><strong>${ok ? "Certo" : "Rever"}:</strong> ${item.explain}</li>`;
+  }).join("");
+  const result = $("quizResult");
+  if (!result) return;
+  const pct = quiz.length ? Math.round((score / quiz.length) * 100) : 0;
+  localStorage.setItem("quiz_score_" + area, JSON.stringify({score, total: quiz.length, pct, date: new Date().toISOString()}));
+  result.style.display = "block";
+  result.innerHTML = `Resultado: ${score}/${quiz.length} (${pct}%). <ul style="margin:10px 0 0 18px">${details}</ul>`;
+  showToast("Avaliação corrigida: " + pct + "%");
 }
 
 function evaluateInterview() {
@@ -2909,6 +3107,22 @@ function openProject(key) {
         </div>
       </div>`;
     body = asisBlock + gapsBlock + tobeBlock + reqBlock;
+  }
+
+  if (p.sections) {
+    body = `
+      <div class="modal-section">
+        <h4>Estrutura do case study</h4>
+        <div style="display:grid;gap:12px">
+          ${p.sections.map(section => `
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:14px 16px">
+              <strong style="display:block;color:#0f172a;margin-bottom:8px">${section.title}</strong>
+              <ul style="margin:0;padding-left:18px;color:#64748b">
+                ${section.items.map(item => `<li>${item}</li>`).join("")}
+              </ul>
+            </div>`).join("")}
+        </div>
+      </div>`;
   }
 
   const skillsBlock = `
@@ -3213,13 +3427,54 @@ window.addEventListener("DOMContentLoaded", initAcademy);
     {id:"portfolio", title:"Case studies", summary:"Projetos estruturados para transformar aprendizagem em provas de portefólio."},
     {id:"impact", title:"Impacto e competências", summary:"Mapa de competências com evidência prática para entrevistas e LinkedIn."},
     {id:"about-project", title:"Sobre o projeto", summary:"Explicação do objetivo, posicionamento e lógica da plataforma."},
-    {id:"lab", title:"Learning Lab completo", summary:"Todos os exercícios, consola de resolução, solução, coach e geração de mini case study."},
     {id:"interviews", title:"Simulador de entrevistas", summary:"Treino de respostas para Business Analyst, Reporting, FP&A e Finance Transformation."},
     {id:"library", title:"Biblioteca de revisão", summary:"Conceitos essenciais para consultar rapidamente durante o estudo."},
     {id:"roadmap", title:"Roadmap", summary:"Plano de evolução e próximos passos para transformar estudo em oportunidades."}
   ];
 
   function qs(id){ return document.getElementById(id); }
+
+  function setupFastLearningLayout(){
+    const quickHub = qs("quick-hub");
+    const lab = qs("lab");
+    if(quickHub && lab && quickHub.nextElementSibling !== lab){
+      quickHub.insertAdjacentElement("afterend", lab);
+    }
+
+    if(lab && !qs("fastStudyActions")){
+      const toolbar = lab.querySelector(".study-toolbar");
+      const actions = document.createElement("div");
+      actions.id = "fastStudyActions";
+      actions.className = "fast-study-actions";
+      actions.innerHTML = `
+        <button class="btn btn-ghost" id="moduleGuideToggle" type="button">Mostrar guia dos módulos</button>
+        <button class="btn btn-ghost" id="quizPanelToggle" type="button">Mostrar avaliação</button>
+        <span class="fast-note">Os exercícios aparecem primeiro. O guia e o quiz ficam escondidos para a página não ficar tão comprida.</span>`;
+      if(toolbar) toolbar.insertAdjacentElement("afterend", actions);
+
+      const moduleBtn = qs("moduleGuideToggle");
+      if(moduleBtn){
+        moduleBtn.addEventListener("click", () => {
+          document.body.classList.toggle("show-module-guide");
+          moduleBtn.textContent = document.body.classList.contains("show-module-guide") ? "Esconder guia dos módulos" : "Mostrar guia dos módulos";
+        });
+      }
+
+      const quizBtn = qs("quizPanelToggle");
+      if(quizBtn){
+        quizBtn.addEventListener("click", () => {
+          document.body.classList.toggle("show-quiz-panel");
+          quizBtn.textContent = document.body.classList.contains("show-quiz-panel") ? "Esconder avaliação" : "Mostrar avaliação";
+        });
+      }
+    }
+
+    const selector = qs("studySelector");
+    const layout = lab ? lab.querySelector(".lab-layout") : null;
+    if(selector && layout && selector.nextElementSibling !== layout){
+      selector.insertAdjacentElement("afterend", layout);
+    }
+  }
 
   function makeCollapsible(section, meta){
     if(!section || section.dataset.compactReady === "1") return;
@@ -3299,6 +3554,7 @@ window.addEventListener("DOMContentLoaded", initAcademy);
 
   function initCompactLayout(){
     document.body.classList.add("compact-layout");
+    setupFastLearningLayout();
     compactSections.forEach(meta => makeCollapsible(qs(meta.id), meta));
     wireCompactTriggers();
   }
