@@ -808,6 +808,185 @@ html[lang="en"] .exercise-item.done small::after {content:" · completed";}
   .lab-layout {grid-template-columns:300px minmax(0,1fr);}
 }
 
+/* v17: professional typography scale */
+body {
+  font-size:16px;
+  letter-spacing:0;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+
+p,
+li,
+.section-head p,
+.card p {
+  font-size:1rem;
+  line-height:1.62;
+}
+
+.eyebrow,
+.group-title,
+.block h4,
+.compact-badge,
+.tag,
+.badge {
+  letter-spacing:.08em;
+}
+
+.btn {
+  font-size:.9rem;
+  line-height:1;
+  font-weight:850;
+}
+
+.card h3,
+.timeline-card h3,
+.project-card h3,
+.module-info h3 {
+  font-size:1.08rem;
+  line-height:1.22;
+  letter-spacing:-.01em;
+}
+
+.card p,
+.card li,
+.timeline-card li,
+.project-card p {
+  font-size:.95rem;
+}
+
+.kpi strong {
+  font-size:1rem;
+  line-height:1.1;
+}
+
+.kpi span {
+  font-size:.75rem;
+  line-height:1.25;
+}
+
+.study-choice strong,
+.exercise-item strong {
+  font-size:.98rem;
+  line-height:1.18;
+  letter-spacing:-.01em;
+}
+
+.exercise-item small,
+.study-choice span {
+  font-size:.8rem;
+  line-height:1.35;
+}
+
+.workspace textarea,
+.interview-box textarea,
+.exercise-list input,
+.interview-box select {
+  font-size:.96rem;
+  line-height:1.55;
+}
+
+@media(min-width:1121px){
+  .hero h1 {
+    font-size:clamp(1.85rem,2.35vw,2.5rem);
+    line-height:1.07;
+    letter-spacing:-.035em;
+    font-weight:900;
+  }
+  .hero p {
+    font-size:.98rem;
+    line-height:1.58;
+  }
+  .hero-card h3 {
+    font-size:1.05rem;
+    line-height:1.2;
+  }
+  .hero-card li {
+    font-size:.72rem;
+    letter-spacing:.01em;
+  }
+  .section-head h2 {
+    font-size:1.48rem;
+    line-height:1.16;
+    letter-spacing:-.025em;
+  }
+  .section-head p {
+    max-width:740px;
+    font-size:.96rem;
+  }
+  .card {
+    font-size:.95rem;
+  }
+  .card.stat span,
+  .stat span {
+    display:block;
+    color:var(--muted);
+    font-size:.72rem;
+    font-weight:900;
+    letter-spacing:.08em;
+    line-height:1.25;
+    text-transform:uppercase;
+  }
+  .card.stat strong,
+  .stat strong {
+    margin-top:8px;
+    font-size:1.65rem;
+    line-height:1;
+    letter-spacing:-.035em;
+  }
+  .compact-section-card strong {
+    font-size:1rem;
+    line-height:1.2;
+  }
+  .compact-section-card span {
+    font-size:.86rem;
+    line-height:1.45;
+  }
+  .hub-card strong {
+    font-size:1rem;
+    line-height:1.18;
+  }
+  .hub-card span {
+    font-size:.84rem;
+  }
+  .lab-sidebar,
+  .workspace {
+    font-size:.95rem;
+  }
+  .workspace h3 {
+    font-size:1.32rem;
+    line-height:1.22;
+    letter-spacing:-.02em;
+  }
+  .work-block h4 {
+    font-size:.72rem;
+    letter-spacing:.08em;
+  }
+  .code-mock,
+  #solutionBox {
+    font-size:.84rem;
+    line-height:1.55;
+  }
+}
+
+@media(max-width:730px){
+  .hero h1 {
+    font-size:2.05rem;
+    line-height:1.08;
+    letter-spacing:-.035em;
+  }
+  .section-head h2 {
+    font-size:1.55rem;
+    line-height:1.15;
+  }
+  p,
+  li,
+  .section-head p,
+  .card p {
+    font-size:.96rem;
+  }
+}
+
 </style>
 </head>
 <body>
