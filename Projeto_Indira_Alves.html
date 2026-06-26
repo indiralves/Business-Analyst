@@ -660,6 +660,7 @@ html[lang="en"] .exercise-item.done small::after {content:" · completed";}
     align-items:center;
     gap:14px;
     padding-top:4px;
+    order:2;
   }
   .nav-links a {
     width:14px;
@@ -707,7 +708,8 @@ html[lang="en"] .exercise-item.done small::after {content:" · completed";}
     grid-template-columns:1fr;
     gap:10px;
     justify-items:center;
-    margin-top:auto;
+    margin-top:0;
+    order:1;
   }
   .nav-actions .btn {
     width:48px;
@@ -719,12 +721,35 @@ html[lang="en"] .exercise-item.done small::after {content:" · completed";}
   .nav-actions #modeBtn {
     grid-column:auto;
     font-size:0;
+    position:relative;
   }
   .nav-actions #modeBtn::before {
     content:"R";
     font-size:.9rem;
     font-weight:900;
   }
+  .nav-actions #modeBtn::after {
+    content:"Modo recrutador";
+    position:absolute;
+    left:58px;
+    top:50%;
+    transform:translateY(-50%);
+    width:max-content;
+    padding:8px 10px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:var(--card);
+    box-shadow:0 10px 24px rgba(15,23,42,.12);
+    color:var(--text);
+    font-size:.82rem;
+    font-weight:800;
+    opacity:0;
+    pointer-events:none;
+    transition:.16s;
+    z-index:200;
+  }
+  html[lang="en"] .nav-actions #modeBtn::after {content:"Recruiter Mode";}
+  .nav-actions #modeBtn:hover::after {opacity:1;}
   body > header,
   body > main,
   body > footer,
