@@ -1012,6 +1012,76 @@ li,
   }
 }
 
+/* v18: restore original colour system while keeping the dashboard sidebar layout */
+@media(min-width:1121px){
+  body {background:var(--bg);}
+  .hero {
+    background:var(--gradient);
+    color:#fff;
+  }
+  .hero::after {
+    display:block;
+    content:"";
+    position:absolute;
+    right:-120px;
+    top:-120px;
+    width:420px;
+    height:420px;
+    border-radius:999px;
+    background:rgba(20,184,166,.22);
+    filter:blur(12px);
+  }
+  .hero-grid {
+    position:relative;
+    z-index:1;
+    border:0;
+    background:transparent;
+    color:#fff;
+    box-shadow:none;
+  }
+  .hero .eyebrow {color:#67e8f9;}
+  .hero h1 {color:#fff;}
+  .hero p {color:#dbeafe;}
+  .hero-card {
+    border:1px solid rgba(255,255,255,.22);
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    box-shadow:var(--shadow);
+  }
+  body.dark .hero-card {background:rgba(255,255,255,.10);}
+  .hero-card h3 {color:#fff;}
+  .hero-card ul {
+    display:block;
+    padding:0;
+    margin:12px 0;
+    list-style:none;
+  }
+  .hero-card li {
+    margin:8px 0;
+    padding:0;
+    border-radius:0;
+    background:transparent;
+    color:#e0f2fe;
+    font-size:.86rem;
+    font-weight:750;
+  }
+  .hero-card li::before {
+    content:"✓ ";
+    color:#5eead4;
+    font-weight:900;
+  }
+  .hero-card .kpi {
+    background:rgba(255,255,255,.92);
+    border-color:rgba(255,255,255,.35);
+  }
+  .hero-card .kpi strong {color:#0f172a;}
+  .hero-card .kpi span {color:#475569;}
+  .btn-outline {
+    border-color:rgba(255,255,255,.55);
+    color:#fff;
+  }
+}
+
 </style>
 </head>
 <body>
