@@ -124,6 +124,10 @@ body.dark .tag {background:#172554;color:#93c5fd}
 .exercise-item:hover,.exercise-item.active {background:rgba(37,99,235,.11)}
 .exercise-item small {display:block;color:var(--muted);font-weight:800}
 .exercise-item.done small::after {content:" · concluído";color:var(--success)}
+.exercise-item.locked {opacity:.48;cursor:not-allowed;background:rgba(148,163,184,.08)}
+.exercise-item.locked:hover {transform:none;border-color:transparent}
+.exercise-item.locked small::after {content:" · bloqueado";color:var(--muted)}
+.exercise-item.locked .badge {background:#e5e7eb;color:#64748b}
 .workspace-head {display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--border);padding-bottom:18px;margin-bottom:20px}
 .block {margin-bottom:22px}
 .block h4 {text-transform:uppercase;color:var(--muted);font-size:.78rem;letter-spacing:.8px;margin-bottom:8px}
@@ -471,6 +475,7 @@ body.recruiter-mode #quick-hub {display:none!important;}
 
 /* v15: dashboard layout with fixed sidebar */
 html[lang="en"] .exercise-item.done small::after {content:" · completed";}
+html[lang="en"] .exercise-item.locked small::after {content:" · locked";}
 
 @media(min-width:1121px){
   :root {--sidebar-width:282px;}
@@ -2135,6 +2140,84 @@ li,
   }
 }
 
+/* v24: public page structure - hero, experience and contact only */
+body.compact-layout #quick-hub {
+  display:none!important;
+}
+
+body.compact-layout .gated-section.is-collapsed {
+  display:none!important;
+}
+
+body.compact-layout .gated-section:not(.is-collapsed) {
+  display:block;
+}
+
+body.compact-layout .gated-section:not(.is-collapsed) .compact-section-card {
+  margin-bottom:14px;
+}
+
+body.page-view .hero,
+body.page-view #experience,
+body.page-view #contact {
+  display:none!important;
+}
+
+body.page-view main {
+  min-height:calc(100vh - 72px);
+}
+
+body.page-view .gated-section:not(.is-collapsed) {
+  padding-top:28px;
+  min-height:calc(100vh - 92px);
+}
+
+body.page-view .gated-section:not(.is-collapsed) > .container {
+  animation:pageOpen .18s ease;
+}
+
+@keyframes pageOpen {
+  from {opacity:0;transform:translateY(8px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.home-float {
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:2500;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:9px 13px;
+  border-radius:999px;
+  background:var(--secondary);
+  color:#fff;
+  font-weight:900;
+  font-size:.78rem;
+  box-shadow:0 12px 28px rgba(15,23,42,.22);
+}
+
+.home-float:hover {
+  filter:brightness(.94);
+  transform:translateY(-1px);
+}
+
+@media(min-width:1121px){
+  .hero-actions {
+    max-width:760px;
+  }
+  .hero-actions .btn {
+    margin-bottom:2px;
+  }
+  #experience {
+    padding-top:22px;
+  }
+  #contact {
+    padding-top:18px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2162,6 +2245,8 @@ li,
   </div>
 </nav>
 
+<a href="#home" class="home-float" data-pt="Início" data-en="Home">Início</a>
+
 <header id="home" class="hero">
   <div class="container hero-grid">
     <div>
@@ -2169,11 +2254,16 @@ li,
       <h1 data-pt="Portefólio profissional e academia pessoal para Business Analysis, dados e transformação financeira." data-en="Professional portfolio and personal learning academy for Business Analysis, data and finance transformation.">Portefólio profissional e academia pessoal para Business Analysis, dados e transformação financeira.</h1>
       <p data-pt="Uma plataforma prática para mostrar experiência, estudar de forma guiada e transformar exercícios em evidências de portefólio para Business Analysis, Reporting, FP&A e Finance Transformation." data-en="A practical platform to showcase experience, study with structure and convert exercises into portfolio evidence for Business Analysis, Reporting, FP&A and Finance Transformation roles.">Uma plataforma prática para mostrar experiência, estudar de forma guiada e transformar exercícios em evidências de portefólio para Business Analysis, Reporting, FP&A e Finance Transformation.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary study-only" href="#lab" data-expand-section="lab">Começar exercícios</a>
+        <a class="btn btn-primary study-only" href="#lab" data-expand-section="lab">Exercícios</a>
         <a class="btn btn-outline" href="#dashboard" data-pt="Dashboard" data-en="Dashboard">Dashboard</a>
         <a class="btn btn-outline" href="#portfolio" data-pt="Portefólio" data-en="Portfolio">Portefólio</a>
         <a class="btn btn-outline" href="#featured" data-pt="Ver plano da sebenta" data-en="View workbook plan">Ver plano da sebenta</a>
         <a class="btn btn-outline study-only" href="#study-home" data-pt="Abrir academia" data-en="Open academy">Abrir academia</a>
+        <a class="btn btn-outline" href="#impact" data-pt="Competências" data-en="Skills">Competências</a>
+        <a class="btn btn-outline" href="#about-project" data-pt="Sobre o projeto" data-en="About project">Sobre o projeto</a>
+        <a class="btn btn-outline study-only" href="#interviews" data-pt="Entrevistas" data-en="Interviews">Entrevistas</a>
+        <a class="btn btn-outline study-only" href="#library" data-pt="Biblioteca" data-en="Library">Biblioteca</a>
+        <a class="btn btn-outline" href="#roadmap" data-pt="Roadmap" data-en="Roadmap">Roadmap</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/indira-cristina-alves/" target="_blank">LinkedIn</a>
       </div>
       <div class="mode-pill study-only">Study Mode ativo · Learning Lab, XP e simulador de entrevistas visíveis</div>
@@ -5194,6 +5284,24 @@ function getCompleted() { return JSON.parse(localStorage.getItem("completedExerc
 function setCompleted(ids) { localStorage.setItem("completedExercises_v7", JSON.stringify([...new Set(ids)])); }
 function draftKey(id) { return "draft_v7_" + id; }
 
+function getAreaSequence(area) {
+  return exercises.filter(ex => ex.area === area);
+}
+
+function isExerciseUnlocked(exercise, completed = getCompleted()) {
+  if (!exercise) return false;
+  const sequence = getAreaSequence(exercise.area);
+  const index = sequence.findIndex(ex => ex.id === exercise.id);
+  if (index <= 0) return true;
+  return completed.includes(sequence[index - 1].id);
+}
+
+function getFirstAvailableExercise(area = currentStudyArea) {
+  const completed = getCompleted();
+  const pool = exercises.filter(ex => area === "Todos" || ex.area === area);
+  return pool.find(ex => !completed.includes(ex.id) && isExerciseUnlocked(ex, completed)) || pool.find(ex => isExerciseUnlocked(ex, completed)) || pool[0] || exercises[0];
+}
+
 function showToast(message) {
   const toast = $("toast");
   if (!toast) return alert(message);
@@ -5357,6 +5465,7 @@ function renderExercises(filter = "") {
   }
 
   filtered.forEach(ex => {
+    const locked = !isExerciseUnlocked(ex, completed);
     if (ex.group !== group) {
       group = ex.group;
       const g = document.createElement("div");
@@ -5365,9 +5474,16 @@ function renderExercises(filter = "") {
       list.appendChild(g);
     }
     const item = document.createElement("div");
-    item.className = "exercise-item " + (completed.includes(ex.id) ? "done " : "") + (currentExercise && currentExercise.id === ex.id ? "active" : "");
+    item.className = "exercise-item " + (locked ? "locked " : "") + (completed.includes(ex.id) ? "done " : "") + (currentExercise && currentExercise.id === ex.id ? "active" : "");
+    item.setAttribute("aria-disabled", locked ? "true" : "false");
     item.innerHTML = `<div><strong>${ex.name}</strong><small>${ex.area} · ${ex.xp} XP</small></div><span class="badge ${ex.level}">${ex.level}</span>`;
-    item.addEventListener("click", () => loadExercise(ex.id));
+    item.addEventListener("click", () => {
+      if (locked) {
+        showToast(currentLang === "en" ? "Complete the previous level in this module first." : "Conclui primeiro o nível anterior deste módulo.");
+        return;
+      }
+      loadExercise(ex.id);
+    });
     list.appendChild(item);
   });
 
@@ -5390,13 +5506,20 @@ function setStudyArea(area) {
   if (search) search.value = "";
   renderExercises("");
   renderModuleQuiz();
-  const first = exercises.find(ex => currentStudyArea === "Todos" || ex.area === currentStudyArea);
+  const first = getFirstAvailableExercise(currentStudyArea);
   if (first) loadExercise(first.id);
   showToast(currentLang === "en" ? "Module selected: " + (currentStudyArea === "Todos" ? "All modules" : currentStudyArea) : "Módulo selecionado: " + (currentStudyArea === "Todos" ? "Todos os módulos" : currentStudyArea));
 }
 
 function loadExercise(id) {
-  currentExercise = exercises.find(e => e.id === id) || exercises[0];
+  const requested = exercises.find(e => e.id === id) || exercises[0];
+  if (!isExerciseUnlocked(requested)) {
+    showToast(currentLang === "en" ? "This level is locked. Complete the previous level first." : "Este nível está bloqueado. Conclui primeiro o nível anterior.");
+    const fallback = getFirstAvailableExercise(requested.area);
+    if (fallback && fallback.id !== requested.id) return loadExercise(fallback.id);
+    return;
+  }
+  currentExercise = requested;
   if (!currentExercise) return;
   const badge = $("exerciseBadge");
   if (badge) { badge.textContent = currentExercise.level; badge.className = "badge " + currentExercise.level; }
@@ -6085,17 +6208,42 @@ window.addEventListener("DOMContentLoaded", initAcademy);
 <script>
 (function(){
   const compactSections = [
+    {id:"featured", title:"Plano da sebenta", summary:"Percurso organizado para transformar aprendizagem em evidências de portefólio."},
     {id:"dashboard", title:"Progresso detalhado", summary:"KPIs de XP, exercícios concluídos e barras de evolução por área."},
-    {id:"experience", title:"Experiência profissional", summary:"Resumo da experiência em controlo financeiro, auditoria, reporting e automação."},
     {id:"portfolio", title:"Case studies", summary:"Projetos estruturados para transformar aprendizagem em provas de portefólio."},
     {id:"impact", title:"Impacto e competências", summary:"Mapa de competências com evidência prática para entrevistas e LinkedIn."},
     {id:"about-project", title:"Sobre o projeto", summary:"Explicação do objetivo, posicionamento e lógica da plataforma."},
+    {id:"study-home", title:"Academia pessoal", summary:"Rotina de estudo, progresso, diário e plano de aprendizagem."},
+    {id:"lab", title:"Learning Lab", summary:"Exercícios práticos organizados por módulo, com 20 níveis por área."},
     {id:"interviews", title:"Simulador de entrevistas", summary:"Treino de respostas para Business Analyst, Reporting, FP&A e Finance Transformation."},
     {id:"library", title:"Biblioteca de revisão", summary:"Conceitos essenciais para consultar rapidamente durante o estudo."},
     {id:"roadmap", title:"Roadmap", summary:"Plano de evolução e próximos passos para transformar estudo em oportunidades."}
   ];
 
   function qs(id){ return document.getElementById(id); }
+
+  function isGatedSection(id){
+    const section = qs(id);
+    return !!(section && section.classList.contains("gated-section"));
+  }
+
+  function closeGatedSections(){
+    document.querySelectorAll(".gated-section").forEach(section => {
+      section.classList.add("is-collapsed");
+      const btn = section.querySelector(":scope .compact-toggle");
+      if(btn){
+        btn.textContent = "Abrir";
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  function showHome(){
+    closeGatedSections();
+    document.body.classList.remove("page-view");
+    const home = qs("home");
+    if(home) home.scrollIntoView({behavior:"smooth", block:"start"});
+  }
 
   function setupFastLearningLayout(){
     const quickHub = qs("quick-hub");
@@ -6146,7 +6294,7 @@ window.addEventListener("DOMContentLoaded", initAcademy);
   function makeCollapsible(section, meta){
     if(!section || section.dataset.compactReady === "1") return;
     section.dataset.compactReady = "1";
-    section.classList.add("collapsible-section", "is-collapsed");
+    section.classList.add("collapsible-section", "gated-section", "is-collapsed");
     const container = section.querySelector(":scope > .container") || section;
     const head = container.querySelector(":scope > .section-head") || container.firstElementChild;
     const intro = document.createElement("div");
@@ -6174,7 +6322,14 @@ window.addEventListener("DOMContentLoaded", initAcademy);
     const section = qs(id);
     if(!section) return;
     const shouldOpen = forceOpen !== undefined ? forceOpen : section.classList.contains("is-collapsed");
+    if(shouldOpen && section.classList.contains("gated-section")){
+      closeGatedSections();
+      document.body.classList.add("page-view");
+    }
     section.classList.toggle("is-collapsed", !shouldOpen);
+    if(!shouldOpen && section.classList.contains("gated-section")){
+      document.body.classList.remove("page-view");
+    }
     const btn = section.querySelector(":scope .compact-toggle");
     if(btn){
       btn.textContent = shouldOpen ? "Fechar" : "Abrir";
@@ -6183,6 +6338,14 @@ window.addEventListener("DOMContentLoaded", initAcademy);
   };
 
   window.openCompactSection = function(id){
+    if(id === "home"){
+      showHome();
+      return;
+    }
+    if(!isGatedSection(id)){
+      closeGatedSections();
+      document.body.classList.remove("page-view");
+    }
     toggleSection(id, true);
     const section = qs(id);
     if(section) section.scrollIntoView({behavior:"smooth", block:"start"});
@@ -6195,19 +6358,26 @@ window.addEventListener("DOMContentLoaded", initAcademy);
         const target = el.getAttribute("data-scroll-target") || id;
         if(id){
           ev.preventDefault();
-          toggleSection(id, true);
+          openCompactSection(id);
           const section = qs(target);
           if(section) section.scrollIntoView({behavior:"smooth", block:"start"});
         }
       });
     });
 
-    ["lab","interviews","library","experience","portfolio","dashboard","roadmap","about-project"].forEach(id => {
+    ["featured","dashboard","portfolio","impact","about-project","study-home","lab","interviews","library","roadmap","experience","contact"].forEach(id => {
       document.querySelectorAll(`a[href="#${id}"]`).forEach(link => {
         link.addEventListener("click", ev => {
           ev.preventDefault();
           openCompactSection(id);
         });
+      });
+    });
+
+    document.querySelectorAll('a[href="#home"], .home-float, .brand').forEach(link => {
+      link.addEventListener("click", ev => {
+        ev.preventDefault();
+        showHome();
       });
     });
 
