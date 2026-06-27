@@ -152,6 +152,19 @@ body.recruiter-mode .study-only {display:none!important}
 body.recruiter-mode #dashboard .study-metric {display:none!important}
 body.recruiter-mode .recruiter-focus {border:2px solid var(--accent)}
 body.recruiter-mode .hero .btn-primary::after {content:" · Recruiter View";font-weight:900}
+body.recruiter-mode #quick-hub,
+body.recruiter-mode #featured,
+body.recruiter-mode #study-home,
+body.recruiter-mode #lab,
+body.recruiter-mode #interviews,
+body.recruiter-mode #library,
+body.recruiter-mode #roadmap {display:none!important}
+body.recruiter-mode .hero-actions a[href="#featured"],
+body.recruiter-mode .hero-actions a[href="#study-home"],
+body.recruiter-mode .hero-actions a[href="#lab"],
+body.recruiter-mode .hero-actions a[href="#interviews"],
+body.recruiter-mode .hero-actions a[href="#library"],
+body.recruiter-mode .hero-actions a[href="#roadmap"] {display:none!important}
 .hidden {display:none!important}
 footer {padding:34px 0;text-align:center;color:var(--muted);font-size:.9rem}
 
@@ -2250,9 +2263,9 @@ body.page-view .gated-section:not(.is-collapsed) > .container {
 <header id="home" class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">Business Analysis · Finance Transformation · Data Analytics</span>
-      <h1 data-pt="Portefólio profissional e academia pessoal para Business Analysis, dados e transformação financeira." data-en="Professional portfolio and personal learning academy for Business Analysis, data and finance transformation.">Portefólio profissional e academia pessoal para Business Analysis, dados e transformação financeira.</h1>
-      <p data-pt="Uma plataforma prática para mostrar experiência, estudar de forma guiada e transformar exercícios em evidências de portefólio para Business Analysis, Reporting, FP&A e Finance Transformation." data-en="A practical platform to showcase experience, study with structure and convert exercises into portfolio evidence for Business Analysis, Reporting, FP&A and Finance Transformation roles.">Uma plataforma prática para mostrar experiência, estudar de forma guiada e transformar exercícios em evidências de portefólio para Business Analysis, Reporting, FP&A e Finance Transformation.</p>
+      <span class="eyebrow">Business Analysis · Reporting · Process Automation</span>
+      <h1 data-pt="Portefólio profissional para Business Analysis, Reporting e Process Automation." data-en="Professional portfolio for Business Analysis, Reporting and Process Automation.">Portefólio profissional para Business Analysis, Reporting e Process Automation.</h1>
+      <p data-pt="Experiência em controlo financeiro, auditoria, reporting e automação aplicada a dados, requisitos e melhoria de processos." data-en="Experience in financial control, audit, reporting and automation applied to data, requirements and process improvement.">Experiência em controlo financeiro, auditoria, reporting e automação aplicada a dados, requisitos e melhoria de processos.</p>
       <div class="hero-actions">
         <a class="btn btn-primary study-only" href="#lab" data-expand-section="lab">Exercícios</a>
         <a class="btn btn-outline" href="#dashboard" data-pt="Dashboard" data-en="Dashboard">Dashboard</a>
@@ -3033,6 +3046,7 @@ body.page-view .gated-section:not(.is-collapsed) > .container {
         <div class="action-row">
           <button class="btn btn-primary" id="saveBtn">Guardar rascunho</button>
           <button class="btn btn-blue" id="completeBtn">Marcar como concluído</button>
+          <button class="btn btn-blue" id="nextLevelBtn">Próximo nível</button>
           <button class="btn btn-ghost" id="solutionBtn">Mostrar solução</button>
           <button class="btn btn-danger" id="clearBtn">Limpar</button>
           <button class="btn btn-ghost" id="exportProgressBtn">Exportar progresso</button>
@@ -5216,6 +5230,7 @@ const uiTranslations = {
   "Consola de resolução": "Solution console",
   "Guardar rascunho": "Save draft",
   "Marcar como concluído": "Mark as completed",
+  "Próximo nível": "Next level",
   "Mostrar solução": "Show solution",
   "Limpar": "Clear",
   "Exportar progresso": "Export progress",
@@ -5391,6 +5406,7 @@ function syncLanguageLabels() {
 
   setText("#saveBtn", "Guardar rascunho", "Save draft");
   setText("#completeBtn", "Marcar como concluído", "Mark as completed");
+  setText("#nextLevelBtn", "Próximo nível", "Next level");
   setText("#solutionBtn", "Mostrar solução", "Show solution");
   setText("#clearBtn", "Limpar", "Clear");
   setText("#exportProgressBtn", "Exportar progresso", "Export progress");
@@ -5425,6 +5441,7 @@ function init() {
 
     const saveBtn = $("saveBtn"); if (saveBtn) saveBtn.addEventListener("click", saveDraft);
     const completeBtn = $("completeBtn"); if (completeBtn) completeBtn.addEventListener("click", completeExercise);
+    const nextLevelBtn = $("nextLevelBtn"); if (nextLevelBtn) nextLevelBtn.addEventListener("click", goToNextLevel);
     const solutionBtn = $("solutionBtn"); if (solutionBtn) solutionBtn.addEventListener("click", toggleSolution);
     const clearBtn = $("clearBtn"); if (clearBtn) clearBtn.addEventListener("click", clearDraft);
     const exportProgressBtn = $("exportProgressBtn"); if (exportProgressBtn) exportProgressBtn.addEventListener("click", exportProgress);
@@ -5562,6 +5579,18 @@ function completeExercise() {
   updateDashboard();
   renderExercises($("searchInput") ? $("searchInput").value : "");
   showToast(currentLang === "en" ? "Exercise completed! +" + currentExercise.xp + " XP" : "Exercício concluído! +" + currentExercise.xp + " XP");
+}
+
+function goToNextLevel() {
+  const area = currentExercise ? currentExercise.area : currentStudyArea;
+  const next = getFirstAvailableExercise(area);
+  if (!next) return;
+  if (currentExercise && next.id === currentExercise.id && !getCompleted().includes(next.id)) {
+    showToast(currentLang === "en" ? "Complete this level first to unlock the next one." : "Conclui este nível primeiro para desbloquear o próximo.");
+    return;
+  }
+  loadExercise(next.id);
+  showToast(currentLang === "en" ? "Next available level opened." : "Próximo nível disponível aberto.");
 }
 
 function toggleSolution() {
