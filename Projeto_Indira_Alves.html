@@ -103,6 +103,7 @@ body.dark .tag {background:#172554;color:#93c5fd}
 .timeline-card {background:var(--card);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:var(--shadow)}
 .timeline-card small {color:var(--muted);font-weight:900}
 .visual {height:196px;border-radius:18px;border:1px solid var(--border);background:#0f172a;overflow:hidden;margin:16px 0;position:relative}
+.evidence-img {width:100%;height:196px;object-fit:cover;display:block;background:#0f172a}
 .visual .bar {position:absolute;bottom:20px;width:30px;background:linear-gradient(180deg,#60a5fa,#14b8a6);border-radius:8px 8px 0 0}
 .visual .line {position:absolute;height:4px;background:#22c55e;border-radius:999px;transform-origin:left}
 .code-mock {font-family:Consolas,monospace;color:#c4b5fd;padding:18px;font-size:.84rem;line-height:1.55}
@@ -2458,131 +2459,42 @@ body.page-view .gated-section:not(.is-collapsed) > .container {
       <div class="card project-card">
         <span class="tag">SQL · Reporting</span>
         <h3>1. Queries SQL no GitHub</h3>
-        <div class="visual code-mock" style="font-size:.74rem;line-height:1.5;overflow:hidden">SELECT c.segmento,<br>&nbsp;&nbsp;SUM(f.valor_total) AS receita,<br>&nbsp;&nbsp;COUNT(f.fatura_id) AS n_faturas,<br>&nbsp;&nbsp;ROUND(100.0 * SUM(<br>&nbsp;&nbsp;&nbsp;&nbsp;CASE WHEN f.estado='Pago'<br>&nbsp;&nbsp;&nbsp;&nbsp;THEN f.valor_total ELSE 0 END)<br>&nbsp;&nbsp;/ SUM(f.valor_total), 1) AS pct_cobrado<br>FROM Faturas f<br>JOIN Clientes c USING (cliente_id)<br>GROUP BY c.segmento;</div>
+        <img class="visual evidence-img" src="assets/screenshots/sql-reporting-lab.svg" alt="SQL Reporting Lab evidence preview" />
         <p>Repositório com queries SQL, dataset sintético, README, screenshots e explicação das perguntas de negócio respondidas.</p>
         <div class="project-footer"><button class="btn btn-blue open-project" data-project="sql">View case study</button><a class="btn btn-ghost" href="https://github.com/indiralves/Business-Analyst" target="_blank" rel="noopener">GitHub</a><button class="btn btn-ghost resource-btn" data-resource="github">Checklist</button></div>
       </div>
       <div class="card project-card">
         <span class="tag green">Power BI · DAX</span>
         <h3>2. Dashboard Power BI</h3>
-        <div class="visual" style="height:196px;padding:0">
-          <svg viewBox="0 0 340 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
-            <!-- axis -->
-            <line x1="34" y1="16" x2="34" y2="130" stroke="#334155" stroke-width="1"/>
-            <line x1="34" y1="130" x2="330" y2="130" stroke="#334155" stroke-width="1"/>
-            <!-- gridlines -->
-            <line x1="34" y1="90" x2="330" y2="90" stroke="#1e293b" stroke-width="1" stroke-dasharray="3,2"/>
-            <line x1="34" y1="60" x2="330" y2="60" stroke="#1e293b" stroke-width="1" stroke-dasharray="3,2"/>
-            <line x1="34" y1="30" x2="330" y2="30" stroke="#1e293b" stroke-width="1" stroke-dasharray="3,2"/>
-            <!-- y labels -->
-            <text x="30" y="133" text-anchor="end" font-size="8" fill="#64748b" font-family="Inter,sans-serif">0</text>
-            <text x="30" y="93" text-anchor="end" font-size="8" fill="#64748b" font-family="Inter,sans-serif">50k</text>
-            <text x="30" y="63" text-anchor="end" font-size="8" fill="#64748b" font-family="Inter,sans-serif">80k</text>
-            <text x="30" y="33" text-anchor="end" font-size="8" fill="#64748b" font-family="Inter,sans-serif">110k</text>
-            <!-- months: Jan-Jun, Budget (blue) + Actual (teal) pairs -->
-            <!-- Jan -->
-            <rect x="40" y="52" width="16" height="78" rx="3" fill="#1d4ed8" opacity=".7"/>
-            <rect x="58" y="58" width="16" height="72" rx="3" fill="#14b8a6"/>
-            <!-- Feb -->
-            <rect x="82" y="48" width="16" height="82" rx="3" fill="#1d4ed8" opacity=".7"/>
-            <rect x="100" y="44" width="16" height="86" rx="3" fill="#14b8a6"/>
-            <!-- Mar -->
-            <rect x="124" y="38" width="16" height="92" rx="3" fill="#1d4ed8" opacity=".7"/>
-            <rect x="142" y="50" width="16" height="80" rx="3" fill="#14b8a6"/>
-            <!-- Apr -->
-            <rect x="166" y="32" width="16" height="98" rx="3" fill="#1d4ed8" opacity=".7"/>
-            <rect x="184" y="40" width="16" height="90" rx="3" fill="#14b8a6"/>
-            <!-- May -->
-            <rect x="208" y="36" width="16" height="94" rx="3" fill="#1d4ed8" opacity=".7"/>
-            <rect x="226" y="28" width="16" height="102" rx="3" fill="#14b8a6"/>
-            <!-- Jun -->
-            <rect x="250" y="30" width="16" height="100" rx="3" fill="#1d4ed8" opacity=".7"/>
-            <rect x="268" y="35" width="16" height="95" rx="3" fill="#14b8a6"/>
-            <!-- month labels -->
-            <text x="53" y="143" text-anchor="middle" font-size="7.5" fill="#94a3b8" font-family="Inter,sans-serif">Jan</text>
-            <text x="95" y="143" text-anchor="middle" font-size="7.5" fill="#94a3b8" font-family="Inter,sans-serif">Fev</text>
-            <text x="137" y="143" text-anchor="middle" font-size="7.5" fill="#94a3b8" font-family="Inter,sans-serif">Mar</text>
-            <text x="179" y="143" text-anchor="middle" font-size="7.5" fill="#94a3b8" font-family="Inter,sans-serif">Abr</text>
-            <text x="221" y="143" text-anchor="middle" font-size="7.5" fill="#94a3b8" font-family="Inter,sans-serif">Mai</text>
-            <text x="263" y="143" text-anchor="middle" font-size="7.5" fill="#94a3b8" font-family="Inter,sans-serif">Jun</text>
-            <!-- legend -->
-            <rect x="40" y="150" width="10" height="6" rx="2" fill="#1d4ed8" opacity=".7"/>
-            <text x="53" y="156" font-size="7.5" fill="#94a3b8" font-family="Inter,sans-serif">Budget</text>
-            <rect x="90" y="150" width="10" height="6" rx="2" fill="#14b8a6"/>
-            <text x="103" y="156" font-size="7.5" fill="#94a3b8" font-family="Inter,sans-serif">Actual</text>
-          </svg>
-        </div>
+        <img class="visual evidence-img" src="assets/screenshots/powerbi-dashboard.svg" alt="Power BI dashboard evidence preview" />
         <p>Dashboard financeiro com KPIs, Budget vs Actual, margem, evolução mensal, medidas DAX e interpretação executiva.</p>
         <div class="project-footer"><button class="btn btn-blue open-project" data-project="finance">View case study</button><a class="btn btn-ghost" href="https://github.com/indiralves/Business-Analyst/tree/main/power-bi" target="_blank" rel="noopener">Power BI</a><button class="btn btn-ghost resource-btn" data-resource="powerbi">Checklist</button></div>
       </div>
       <div class="card project-card">
         <span class="tag green">Python · pandas</span>
         <h3>3. Python Data Lab</h3>
-        <div class="visual code-mock" style="font-size:.76rem;line-height:1.55;overflow:hidden">import pandas as pd<br><br>faturas = pd.read_csv("data/faturas.csv")<br>lanc = pd.read_csv("data/lancamentos.csv")<br><br>base = faturas.merge(lanc, on="fatura_id", how="left")<br>base["diferenca"] = base["valor_total"] - base["valor"]<br>excecoes = base[base["diferenca"].abs() &gt; 0.01]</div>
+        <img class="visual evidence-img" src="assets/screenshots/python-data-lab.svg" alt="Python Data Lab evidence preview" />
         <p>Script Python com pandas para validar datasets, calcular receita por segmento, reconciliar faturas vs lançamentos e exportar exceções.</p>
         <div class="project-footer"><button class="btn btn-blue open-project" data-project="python">View case study</button><a class="btn btn-ghost" href="https://github.com/indiralves/Business-Analyst/tree/main/python" target="_blank" rel="noopener">GitHub</a><button class="btn btn-ghost resource-btn" data-resource="python">Checklist</button></div>
       </div>
       <div class="card project-card">
         <span class="tag purple">BPMN · Process</span>
         <h3>6. Diagrama BPMN</h3>
-        <div class="visual" style="height:196px;padding:0;overflow:hidden">
-          <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
-            <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#60a5fa"/></marker></defs>
-            <!-- swim label -->
-            <text x="8" y="42" font-size="8" fill="#64748b" font-family="Inter,sans-serif" font-weight="900" transform="rotate(-90,8,42)" text-anchor="middle">Controller</text>
-            <text x="8" y="108" font-size="8" fill="#64748b" font-family="Inter,sans-serif" font-weight="900" transform="rotate(-90,8,108)" text-anchor="middle">Sistema</text>
-            <!-- swim lanes -->
-            <rect x="18" y="10" width="494" height="56" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-            <rect x="18" y="74" width="494" height="56" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
-            <!-- step boxes -->
-            <rect x="30" y="22" width="72" height="32" rx="7" fill="#1d4ed8" stroke="#3b82f6" stroke-width="1"/>
-            <text x="66" y="35" text-anchor="middle" font-size="7.5" fill="white" font-family="Inter,sans-serif" font-weight="900">Extracção</text>
-            <text x="66" y="46" text-anchor="middle" font-size="7" fill="#bfdbfe" font-family="Inter,sans-serif">SAP manual</text>
-            <!-- arrow -->
-            <line x1="102" y1="38" x2="118" y2="38" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr)"/>
-            <!-- diamond gateway -->
-            <polygon points="131,22 150,38 131,54 112,38" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-            <text x="131" y="41" text-anchor="middle" font-size="7" fill="#f59e0b" font-family="Inter,sans-serif" font-weight="900">OK?</text>
-            <line x1="150" y1="38" x2="166" y2="38" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr)"/>
-            <!-- transform box -->
-            <rect x="166" y="22" width="72" height="32" rx="7" fill="#1d4ed8" stroke="#3b82f6" stroke-width="1"/>
-            <text x="202" y="35" text-anchor="middle" font-size="7.5" fill="white" font-family="Inter,sans-serif" font-weight="900">Reconciliar</text>
-            <text x="202" y="46" text-anchor="middle" font-size="7" fill="#bfdbfe" font-family="Inter,sans-serif">Power Query</text>
-            <line x1="238" y1="38" x2="254" y2="38" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr)"/>
-            <!-- approve box -->
-            <rect x="254" y="22" width="72" height="32" rx="7" fill="#7c3aed" stroke="#a78bfa" stroke-width="1"/>
-            <text x="290" y="35" text-anchor="middle" font-size="7.5" fill="white" font-family="Inter,sans-serif" font-weight="900">Aprovação</text>
-            <text x="290" y="46" text-anchor="middle" font-size="7" fill="#ddd6fe" font-family="Inter,sans-serif">Email / Teams</text>
-            <line x1="326" y1="38" x2="342" y2="38" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr)"/>
-            <!-- HFM load (system lane) -->
-            <rect x="342" y="86" width="72" height="32" rx="7" fill="#0e7490" stroke="#22d3ee" stroke-width="1"/>
-            <text x="378" y="99" text-anchor="middle" font-size="7.5" fill="white" font-family="Inter,sans-serif" font-weight="900">Load HFM</text>
-            <text x="378" y="110" text-anchor="middle" font-size="7" fill="#a5f3fc" font-family="Inter,sans-serif">automático</text>
-            <!-- vertical connector approve→hfm -->
-            <line x1="378" y1="38" x2="378" y2="86" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="3,2" marker-end="url(#arr)"/>
-            <line x1="414" y1="102" x2="430" y2="102" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arr)"/>
-            <!-- dashboard -->
-            <rect x="430" y="86" width="72" height="32" rx="7" fill="#16a34a" stroke="#4ade80" stroke-width="1"/>
-            <text x="466" y="99" text-anchor="middle" font-size="7.5" fill="white" font-family="Inter,sans-serif" font-weight="900">Dashboard</text>
-            <text x="466" y="110" text-anchor="middle" font-size="7" fill="#bbf7d0" font-family="Inter,sans-serif">Power BI live</text>
-            <!-- labels -->
-            <text x="131" y="68" text-anchor="middle" font-size="6.5" fill="#f59e0b" font-family="Inter,sans-serif">Erro → retrabalho</text>
-          </svg>
-        </div>
+        <img class="visual evidence-img" src="assets/screenshots/bpmn-record-to-report.svg" alt="BPMN process evidence preview" />
         <p>Mapa AS-IS/TO-BE com gargalos, handoffs, riscos, oportunidades de automação e requisitos associados.</p>
         <div class="project-footer"><button class="btn btn-blue open-project" data-project="process">View case study</button><a class="btn btn-ghost" href="assets/screenshots/bpmn-record-to-report.svg" target="_blank" rel="noopener">Abrir BPMN</a><button class="btn btn-ghost resource-btn" data-resource="bpmn">Checklist</button></div>
       </div>
       <div class="card project-card">
         <span class="tag amber">Jira · Agile</span>
         <h3>4. Projeto Jira</h3>
-        <div class="visual code-mock" style="font-size:.76rem;line-height:1.55;overflow:hidden">Epic: Automatizar reporting mensal<br><br>Story: As a Controller,<br>I want to refresh monthly data automatically,<br>so that I reduce manual checks.<br><br>Acceptance Criteria:<br>- Given valid source files<br>- When refresh runs<br>- Then exceptions are flagged</div>
+        <img class="visual evidence-img" src="assets/screenshots/jira-backlog.svg" alt="Jira backlog evidence preview" />
         <p>Backlog simulado com epic, user stories, tasks, bugs, prioridades, critérios de aceitação e Definition of Done.</p>
         <div class="project-footer"><button class="btn btn-blue open-project" data-project="jira">View case study</button><a class="btn btn-ghost" href="https://github.com/indiralves/Business-Analyst/tree/main/jira" target="_blank" rel="noopener">GitHub</a><button class="btn btn-ghost resource-btn" data-resource="jira">Checklist</button></div>
       </div>
       <div class="card project-card">
         <span class="tag">Confluence · Documentation</span>
         <h3>5. Documentação Confluence</h3>
-        <div class="visual code-mock" style="font-size:.76rem;line-height:1.55;overflow:hidden">BRD / FRD<br><br>1. Contexto<br>2. Problema de negócio<br>3. Stakeholders<br>4. Requisitos funcionais<br>5. Regras de negócio<br>6. Casos de teste<br>7. Riscos e dependências</div>
+        <img class="visual evidence-img" src="assets/screenshots/confluence-requirements.svg" alt="Confluence requirements evidence preview" />
         <p>Página funcional com contexto, requisitos, regras de negócio, critérios de aceitação, RACI e plano de validação.</p>
         <div class="project-footer"><button class="btn btn-blue open-project" data-project="confluence">View case study</button><a class="btn btn-ghost" href="https://github.com/indiralves/Business-Analyst/tree/main/confluence" target="_blank" rel="noopener">GitHub</a><button class="btn btn-ghost resource-btn" data-resource="confluence">Checklist</button></div>
       </div>
